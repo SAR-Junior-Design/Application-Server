@@ -1,0 +1,20 @@
+
+
+{
+	"drones" : [
+		{
+			"id" : "1239bck-sdfijewr",
+			"battery_info" : { 
+				"voltage" : 99,
+				"current_consumption" : 99,
+				"energy_remaining" : 99
+			},
+			"location" : "lat, long",
+			"altitude" : 99,
+			"connection" : "IS_CONNECTION",
+			"CURRENT_BEHAVIOR" : "SEARCHING",
+			"velocity" : { "x" : 99, "y" : 99, "z" : 99},
+			""
+		}
+	]
+}

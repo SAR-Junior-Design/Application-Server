@@ -1,0 +1,21 @@
+These are the environments that our
+postman collection works with. If you’re
+testing locally, use the local environment,
+and if you’re testing on production then
+use the production environment.
+
+LOCAL
+
+url:localhost
+port:5000
+username:1
+password:lawrence
+email:samcrane8@gmail.com
+
+PRODUCTION
+
+url:http://backend.searchandrescuedrones.us
+port:5000
+username:KaanLikesEC2s
+password:lawrence
+email:samcrane8@gmail.com
