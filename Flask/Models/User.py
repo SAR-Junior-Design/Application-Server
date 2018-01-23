@@ -57,7 +57,7 @@ class User():
     def list_all_users():
         if 'user' in session.keys():
             user = session['user']
-            if DB_User.query.filter_by(email = user.email).first().account_type == "admin":
+            if User_DBModel.query.filter_by(email = user["email"]).first().account_type == "admin":
                 db_user_devices = User_DBModel.query.all()
                 return_json_list = []
                 for report in db_user_devices:
@@ -83,7 +83,7 @@ class User():
     def register_user():
         if 'user' in session.keys():
             user = session['user']
-            if DB_User.query.filter_by(email = user.email).first().account_type == "admin":
+            if User_DBModel.query.filter_by(email = user["email"]).first().account_type == "admin":
                 parsed_json = request.get_json()
                 email = parsed_json["email"]
                 password = parsed_json["password"]
