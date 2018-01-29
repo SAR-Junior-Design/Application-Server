@@ -3,7 +3,7 @@ import uuid
 import datetime
 
 from flaskapp import db, app
-from flask import request, Response, send_file, send_from_directory, make_response
+from flask import request, Response, send_file, send_from_directory, make_response, session
 
 from Utility.Encryptor import Encryptor
 from Utility.color_print import ColorPrint
@@ -22,7 +22,7 @@ class Mission():
         if 'user' in session.keys():
             user = session['user']
             
-            commander = cookie["email"]
+            commander = user["email"]
             parsed_json = request.get_json()
 
             area = parsed_json["area"]
