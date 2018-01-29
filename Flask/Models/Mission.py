@@ -195,7 +195,7 @@ class Mission():
             dict_local["commanding"] = commanded_list
 
             participating_missions = Mission_DBModel.query.join(Asset_DBModel).join(User_DBModel).filter(
-                Drone_DBModel.owner == cookie['email']).all()
+                Drone_DBModel.owner == user['email']).all()
 
             participating_list = []
             for mission in participating_missions:
