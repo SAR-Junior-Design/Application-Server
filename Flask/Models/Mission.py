@@ -186,7 +186,7 @@ class Mission():
         if 'user' in session.keys():
             user = session['user']
 
-            missions = Mission_DBModel.query.filter_by(commander = cookie['email']).all()
+            missions = Mission_DBModel.query.filter_by(commander = user['email']).all()
 
             dict_local = {}
             commanded_list = []
