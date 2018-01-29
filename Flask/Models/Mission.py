@@ -35,7 +35,7 @@ class Mission():
             db.session.add(mission)
 
             db.session.commit()
-            dict_local = {'mission_id' : mission_id}
+            dict_local = {'mission_id' : mission_id, 'code':200}
             return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
             return return_string
         else:
