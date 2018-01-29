@@ -19,9 +19,8 @@ class Mission():
 
     @staticmethod
     def register_mission():
-        encrypted_cookie = request.cookies.get('sessionID')
-        if User_DBModel.authenticate_user_cookie(encrypted_cookie):
-            cookie = User_DBModel.decrypt_cookie(encrypted_cookie)
+        if 'user' in session.keys():
+            user = session['user']
             
             commander = cookie["email"]
             parsed_json = request.get_json()
@@ -46,9 +45,8 @@ class Mission():
 
     @staticmethod
     def get_mission_info():
-        encrypted_cookie = request.cookies.get('sessionID')
-        if User_DBModel.authenticate_user_cookie(encrypted_cookie):
-            cookie = User_DBModel.decrypt_cookie(encrypted_cookie)
+        if 'user' in session.keys():
+            user = session['user']
             parsed_json = request.get_json()
 
             mission_id = parsed_json["mission_id"]
@@ -83,9 +81,8 @@ class Mission():
 
     @staticmethod
     def add_drone_to_mission():
-        encrypted_cookie = request.cookies.get('sessionID')
-        if User_DBModel.authenticate_user_cookie(encrypted_cookie):
-            cookie = User_DBModel.decrypt_cookie(encrypted_cookie)
+        if 'user' in session.keys():
+            user = session['user']
 
             parsed_json = request.get_json()
 
@@ -122,9 +119,8 @@ class Mission():
 
     @staticmethod
     def remove_drone_from_mission():
-        encrypted_cookie = request.cookies.get('sessionID')
-        if User_DBModel.authenticate_user_cookie(encrypted_cookie):
-            cookie = User_DBModel.decrypt_cookie(encrypted_cookie)
+        if 'user' in session.keys():
+            user = session['user']
 
             parsed_json = request.get_json()
 
@@ -159,9 +155,8 @@ class Mission():
 
     @staticmethod
     def end_mission():
-        encrypted_cookie = request.cookies.get('sessionID')
-        if User_DBModel.authenticate_user_cookie(encrypted_cookie):
-            cookie = User_DBModel.decrypt_cookie(encrypted_cookie)
+        if 'user' in session.keys():
+            user = session['user']
 
             parsed_json = request.get_json()
 
@@ -188,9 +183,8 @@ class Mission():
 
     @staticmethod
     def get_user_missions():
-        encrypted_cookie = request.cookies.get('sessionID')
-        if User_DBModel.authenticate_user_cookie(encrypted_cookie):
-            cookie = User_DBModel.decrypt_cookie(encrypted_cookie)
+        if 'user' in session.keys():
+            user = session['user']
 
             missions = Mission_DBModel.query.filter_by(commander = cookie['email']).all()
 
@@ -217,9 +211,8 @@ class Mission():
 
     @staticmethod
     def get_mission_drones():
-        encrypted_cookie = request.cookies.get('sessionID')
-        if User_DBModel.authenticate_user_cookie(encrypted_cookie):
-            cookie = User_DBModel.decrypt_cookie(encrypted_cookie)
+        if 'user' in session.keys():
+            user = session['user']
             parsed_json = request.get_json()
 
             mission_id = parsed_json["mission_id"]
@@ -248,9 +241,8 @@ class Mission():
 
     @staticmethod
     def update_mission_area():
-        encrypted_cookie = request.cookies.get('sessionID')
-        if User_DBModel.authenticate_user_cookie(encrypted_cookie):
-            cookie = User_DBModel.decrypt_cookie(encrypted_cookie)
+        if 'user' in session.keys():
+            user = session['user']
             parsed_json = request.get_json()
 
             mission_id = parsed_json["mission_id"]
@@ -285,9 +277,8 @@ class Mission():
 
     @staticmethod
     def is_mission_live():
-        encrypted_cookie = request.cookies.get('sessionID')
-        if User_DBModel.authenticate_user_cookie(encrypted_cookie):
-            cookie = User_DBModel.decrypt_cookie(encrypted_cookie)
+        if 'user' in session.keys():
+            user = session['user']
             parsed_json = request.get_json()
 
             mission_id = parsed_json["mission_id"]
@@ -323,9 +314,8 @@ class Mission():
 
     @staticmethod
     def start_mission():
-        encrypted_cookie = request.cookies.get('sessionID')
-        if User_DBModel.authenticate_user_cookie(encrypted_cookie):
-            cookie = User_DBModel.decrypt_cookie(encrypted_cookie)
+        if 'user' in session.keys():
+            user = session['user']
             parsed_json = request.get_json()
 
             mission_id = parsed_json["mission_id"]
@@ -361,9 +351,8 @@ class Mission():
 
     @staticmethod
     def add_area_vertices():
-        encrypted_cookie = request.cookies.get('sessionID')
-        if User_DBModel.authenticate_user_cookie(encrypted_cookie):
-            cookie = User_DBModel.decrypt_cookie(encrypted_cookie)
+        if 'user' in session.keys():
+            user = session['user']
             parsed_json = request.get_json()
             mission_id = parsed_json["mission_id"]
             area = json.dumps(area, sort_keys = True, indent = 4, separators = (',', ': '))

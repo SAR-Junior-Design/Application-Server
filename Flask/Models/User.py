@@ -23,6 +23,9 @@ class User():
         email = parsed_json["email"]
         password = parsed_json["password"]
 
+        print("Email: ", email)
+        print("Password: ", password)
+
         if User_DBModel.authenticate_email_password(email, password):
             #then there's not a good cookie, and we're loggin in.
 
