@@ -84,30 +84,19 @@ class User():
 
     @staticmethod
     def register_user():
-        if 'user' in session.keys():
-            user = session['user']
-            if User_DBModel.query.filter_by(email = user["email"]).first().account_type == "admin":
-                parsed_json = request.get_json()
-                email = parsed_json["email"]
-                password = parsed_json["password"]
-                name = parsed_json["name"]
-                account_type = parsed_json["account_type"]
+        parsed_json = request.get_json()
+        email = parsed_json["email"]
+        password = parsed_json["password"]
+        name = parsed_json["name"]
+        account_type = parsed_json["account_type"]
 
-                user = User_DBModel(name, password, email, account_type)
-                db.session.add(user)
-                db.session.commit()
+        user = User_DBModel(name, password, email, account_type)
+        db.session.add(user)
+        db.session.commit()
 
-                return_json = {'code': 200}
-                return_string = json.dumps(return_json, sort_keys=True, indent=4, separators=(',', ': '))
-                return return_string
-            else:
-                dict_local = {'code': 37, 'message': "Permission error " + cookie["email"]}
-                return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
-                return return_string
-        else:
-            dict_local = {'code': 31, 'message': "auth error"}
-            return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
-            return return_string	
+        return_json = {'code': 200}
+        return_string = json.dumps(return_json, sort_keys=True, indent=4, separators=(',', ': '))
+        return return_string
 
 app.add_url_rule('/login', 'login', User.login, methods=['POST'])
 app.add_url_rule('/logoff', 'logoff', User.logoff, methods=['GET'])
