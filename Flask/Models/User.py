@@ -90,13 +90,18 @@ class User():
         name = parsed_json["name"]
         account_type = parsed_json["account_type"]
 
-        user = User_DBModel(name, password, email, account_type)
-        db.session.add(user)
-        db.session.commit()
+        if User_DBModel.query.filter_by(email = user["email"]).first() is not None:
+	        user = User_DBModel(name, password, email, account_type)
+	        db.session.add(user)
+	        db.session.commit()
 
-        return_json = {'code': 200}
-        return_string = json.dumps(return_json, sort_keys=True, indent=4, separators=(',', ': '))
-        return return_string
+	        return_json = {'code': 200}
+	        return_string = json.dumps(return_json, sort_keys=True, indent=4, separators=(',', ': '))
+	        return return_string
+	    else:
+	    	return_json = {'code': 31, 'message': 'User already exists.'}
+	        return_string = json.dumps(return_json, sort_keys=True, indent=4, separators=(',', ': '))
+	        return return_string
 
 app.add_url_rule('/login', 'login', User.login, methods=['POST'])
 app.add_url_rule('/logoff', 'logoff', User.logoff, methods=['GET'])
