@@ -15,6 +15,9 @@ session_inactivity_timeout = datetime.timedelta(0, seconds_in_hour * 2)
 
 class User():
 
+	@staticmethod
+	def isLoggedIn():
+		return make_response(str('user' in session.keys()))
 
 	@staticmethod
 	def login():
@@ -105,8 +108,10 @@ class User():
 		else:
 			return_json = {'code': 31, 'message': 'User already exists.'}
 			return_string = json.dumps(return_json, sort_keys=True, indent=4, separators=(',', ': '))
+
 			return return_string
 
+app.add_url_rule('/isLoggedIn', 'isLoggedIn', User.isLoggedIn, methods=['GET'])
 app.add_url_rule('/login', 'login', User.login, methods=['POST'])
 app.add_url_rule('/logoff', 'logoff', User.logoff, methods=['GET'])
 app.add_url_rule('/list_all_users', 'list_all_users', User.list_all_users, methods=['GET'])
