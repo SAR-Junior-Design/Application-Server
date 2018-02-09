@@ -32,22 +32,22 @@ class User():
 		if User_DBModel.authenticate_email_password(email, password):
 			#then there's not a good cookie, and we're loggin in.
 
-            user = {'email' : email, 'password' : password}
-            
-            if 'user' in session.keys():
-                dict_local = {'code': 200, 'message': "already logged in"}
-            else:
-                session['user'] = user
-                session.modified=True
-                dict_local = {'code': 200}
-            return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
-            response = make_response(return_string)  
-            return response
-        else:
-            #not a good cookie and no login.
-            dict_local = {'code': 31, 'message': "login failed"}
-            return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
-            return return_string
+			user = {'email' : email, 'password' : password}
+			
+			if 'user' in session.keys():
+				dict_local = {'code': 200, 'message': "already logged in"}
+			else:
+				session['user'] = user
+				session.modified=True
+				dict_local = {'code': 200}
+			return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
+			response = make_response(return_string)  
+			return response
+		else:
+			#not a good cookie and no login.
+			dict_local = {'code': 31, 'message': "login failed"}
+			return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
+			return return_string
 
 	@staticmethod
 	def logoff():
