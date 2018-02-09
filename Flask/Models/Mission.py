@@ -19,6 +19,7 @@ class Mission():
 
     @staticmethod
     def register_mission():
+        print (session.keys())
         if 'user' in session.keys():
             user = session['user']
             
@@ -31,6 +32,8 @@ class Mission():
             title = parsed_json["title"]
 
             mission_id = str(uuid.uuid4())
+            # mission_id = "e4ca934d-988d-4a45-9139-c719dcfb491a"
+            print (mission_id)
             mission = Mission_DBModel(mission_id, title, commander, area, description)
             db.session.add(mission)
 
@@ -70,7 +73,7 @@ class Mission():
             dict_local["drones"] = drones_dict
             dict_local["area"] = mission.area
             dict_local["commander"] = mission.commander
-            dict_local["closed_at"] = mission.closed_at
+            dict_local["closed_at"] = mission.closed_at.isoformat()
 
             return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
             return return_string
@@ -85,7 +88,6 @@ class Mission():
             user = session['user']
 
             parsed_json = request.get_json()
-
             mission_id = parsed_json["mission_id"]
             drone_id = parsed_json["drone_id"]
             operator_email = parsed_json["operator_email"]
@@ -257,7 +259,7 @@ class Mission():
                 return return_string
 
             #make sure this is the commander
-            email = cookie["email"]
+            email = user["email"]
             if mission.commander != email:
                 #then this isn't a user that can do this operation.
                 dict_local = {'code': 31, 'message': "This user is not the mission commander."}
@@ -282,7 +284,6 @@ class Mission():
             parsed_json = request.get_json()
 
             mission_id = parsed_json["mission_id"]
-            area = json.dumps(area, sort_keys=True, indent=4, separators=(',', ': '))
 
             mission = Mission_DBModel.query.filter_by(id = mission_id).first()
 
@@ -292,7 +293,7 @@ class Mission():
                 return return_string
             
             #make sure this is the commander
-            email = cookie["email"]
+            email = user["email"]
             if mission.commander != email:
                 #then this isn't a user that can do this operation.
                 dict_local = {'code': 31, 'message': "This user is not the mission commander."}
@@ -319,7 +320,7 @@ class Mission():
             parsed_json = request.get_json()
 
             mission_id = parsed_json["mission_id"]
-            area = json.dumps(area, sort_keys=True, indent=4, separators=(',', ': '))
+            print (mission_id)
 
             mission = Mission_DBModel.query.filter_by(id = mission_id).first()
 
@@ -329,7 +330,7 @@ class Mission():
                 return return_string
             
             #make sure this is the commander
-            email = cookie["email"]
+            email = user['email']
             if mission.commander != email:
                 #then this isn't a user that can do this operation.
                 dict_local = {'code': 31, 'message': "This user is not the mission commander."}

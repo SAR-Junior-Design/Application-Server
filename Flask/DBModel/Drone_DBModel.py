@@ -18,6 +18,8 @@ class Drone_DBModel(db.Model):
     id = db.Column(db.Text, primary_key=True)
     owner = db.Column(db.Text, db.ForeignKey('users.email', ondelete = 'CASCADE'))
     type = db.Column(db.Text)
+    longitude = db.Column(db.Float)
+    latitude = db.Column(db.Float)
     # this will be the mission the drone is tied to.
 
     def __init__(self, id, owner, type):

@@ -1,7 +1,7 @@
 import json
 import uuid
 from flaskapp import db, app
-from flask import request, Response, send_file, send_from_directory
+from flask import request, Response, send_file, send_from_directory, session
 from sqlalchemy.dialects.postgresql import JSON
 from DBModel.User_DBModel import User_DBModel
 from DBModel.Session_DBModel import Session_DBModel
@@ -16,11 +16,8 @@ class Drone():
 		if 'user' in session.keys():
 			user = session['user']
 			if User_DBModel.query.filter_by(email = user["email"]).first().account_type == "admin":
-				cookie = User_DBModel.decrypt_cookie(encrypted_cookie)
-				
-				owner = cookie["email"]
 				parsed_json = request.get_json()
-
+				owner = user["email"]
 				drone_id = str(uuid.uuid4())
 				type = parsed_json["type"]
 
@@ -44,11 +41,10 @@ class Drone():
 
 	@staticmethod
 	def get_user_drones():
-		encrypted_cookie = request.cookies.get('sessionID')
-		if User_DBModel.authenticate_user_cookie(encrypted_cookie):
-			cookie = User_DBModel.decrypt_cookie(encrypted_cookie)
-			
-			email = cookie["email"]
+		if 'user' in session.keys():
+			user = session['user']
+			print (user)
+			email = user['email']
 
 			responses = Drone_DBModel.query.join(User_DBModel).filter(Drone_DBModel.owner == email).all()
 
@@ -67,11 +63,11 @@ class Drone():
 
 	@staticmethod
 	def delete_drone():
-		encrypted_cookie = request.cookies.get('sessionID')
-		if User_DBModel.authenticate_user_cookie(encrypted_cookie):
-			cookie = User_DBModel.decrypt_cookie(encrypted_cookie)
+		print (session.keys())
+		if 'user' in session.keys():
 			
-			owner = cookie["email"]
+			user = session['user']
+			email = user['email']
 			parsed_json = request.get_json()
 
 			drone_id = parsed_json["id"]
@@ -94,8 +90,7 @@ class Drone():
 
 	@staticmethod
 	def get_drones_past_missions():
-		encrypted_cookie = request.cookies.get('sessionID')
-		if User_DBModel.authenticate_user_cookie(encrypted_cookie):
+		if 'user' in session.keys():
 			
 			parsed_json = request.get_json()
 
@@ -123,8 +118,8 @@ class Drone():
 
 	@staticmethod
 	def get_mission_update():
-		encrypted_cookie = request.cookies.get('sessionID')
-		if User_DBModel.authenticate_user_cookie(encrypted_cookie):
+		if 'user' in session.keys():
+			user = session['user']
 
 			#in this portion I should make a TCP connection out to the 
 			#sister server and ask for the in-ram, real-time data coming
