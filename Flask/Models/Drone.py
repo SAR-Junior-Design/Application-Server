@@ -15,24 +15,19 @@ class Drone():
 	def register_drone():
 		if 'user' in session.keys():
 			user = session['user']
-			if User_DBModel.query.filter_by(email = user["email"]).first().account_type == "admin":
-				parsed_json = request.get_json()
-				owner = user["email"]
-				drone_id = str(uuid.uuid4())
-				type = parsed_json["type"]
+			parsed_json = request.get_json()
+			owner = user["email"]
+			drone_id = str(uuid.uuid4())
+			type = parsed_json["type"]
 
-				drone = Drone_DBModel(drone_id, owner, type)
-				db.session.add(drone)
-				db.session.commit()
+			drone = Drone_DBModel(drone_id, owner, type)
+			db.session.add(drone)
+			db.session.commit()
 
-				dict_local = {'id': drone_id}
+			dict_local = {'id': drone_id}
 
-				return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
-				return return_string
-			else:
-				dict_local = {'code': 31, 'message': "Not admin user."}
-				return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
-				return return_string
+			return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
+			return return_string
 		else:
 			dict_local = {'code': 31, 'message': "Auth error."}
 			return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
