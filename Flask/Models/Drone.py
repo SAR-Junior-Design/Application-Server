@@ -43,17 +43,18 @@ class Drone():
 
 			responses = Drone_DBModel.query.join(User_DBModel).filter(Drone_DBModel.owner == owner).all()
 
-			dict_local = {}
+			array_local = []
 			for response in responses:
 				drone_dict = {}
 				drone_dict["description"] = response.description
-				dict_local[response.id] = drone_dict
+				drone_dict["id"] = response.id
+				array_local += [drone_dict]
 
-			return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
+			return_string = json.dumps(array_local, sort_keys=True, indent=4, separators=(',', ': '))
 			return return_string
 		else:
-			dict_local = {'code': 31, 'message': "Auth error."}
-			return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
+			array_local = {'code': 31, 'message': "Auth error."}
+			return_string = json.dumps(array_local, sort_keys=True, indent=4, separators=(',', ': '))
 			return return_string
 
 	@staticmethod
