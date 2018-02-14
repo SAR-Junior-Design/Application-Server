@@ -197,20 +197,20 @@ class Mission():
         if 'user' in session.keys():
             user = session['user']
 
-            missions = Mission_DBModel.query.filter_by(commander = user['email']).all()
+            missions = Mission_DBModel.query.filter_by(commander = user['id']).all()
 
             dict_local = {}
             commanded_list = []
             for mission in missions:
-                commanded_list += [mission.id]
+                commanded_list += [{'id': mission.id,'title': mission.title}]
             dict_local["commanding"] = commanded_list
 
             participating_missions = Mission_DBModel.query.join(Asset_DBModel).join(User_DBModel).filter(
-                Drone_DBModel.owner == user['email']).all()
+                Drone_DBModel.owner == user['id']).all()
 
             participating_list = []
             for mission in participating_missions:
-                participating_list += [mission.id]
+                participating_list += [{'id': mission.id,'title': mission.title}]
             dict_local["participating"] = participating_list
 
             return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
