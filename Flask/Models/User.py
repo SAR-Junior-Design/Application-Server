@@ -25,13 +25,11 @@ class User():
 		email = parsed_json["email"]
 		password = parsed_json["password"]
 
-		print("Email: ", email)
-		print("Password: ", password)
+		user_info = User_DBModel.authenticate_email_password(email, password)
+		if user_info is not None:
+			#then this data is good, and we're in.
 
-		if User_DBModel.authenticate_email_password(email, password):
-			#then there's not a good cookie, and we're loggin in.
-
-			user = {'email' : email, 'password' : password}
+			user = {'id': user_info.id, 'email' : email, 'password' : password}
 			
 			if 'user' in session.keys():
 				dict_local = {'code': 200, 'message': "already logged in"}
@@ -70,7 +68,8 @@ class User():
 				db_user_devices = User_DBModel.query.all()
 				return_json_list = []
 				for report in db_user_devices:
-					dict_local = {'name': report.name,
+					dict_local = {'id': report.id,
+													'name': report.name,
 													'email': report.email,
 													'password' : report.password,
 													'created_at': str(report.created_at),
@@ -97,7 +96,8 @@ class User():
 		account_type = parsed_json["account_type"]
 
 		if User_DBModel.query.filter_by(email = email).first() is None:
-			user = User_DBModel(name, password, email, account_type)
+			id = str(uuid.uuid4())
+			user = User_DBModel(id, name, password, email, account_type)
 			db.session.add(user)
 			db.session.commit()
 
@@ -105,9 +105,8 @@ class User():
 			return_string = json.dumps(return_json, sort_keys=True, indent=4, separators=(',', ': '))
 			return return_string
 		else:
-			return_json = {'code': 31, 'message': 'User already exists.'}
+			return_json = {'code': 31, 'message': 'Email already taken.'}
 			return_string = json.dumps(return_json, sort_keys=True, indent=4, separators=(',', ': '))
-
 			return return_string
 
 app.add_url_rule('/isLoggedIn', 'isLoggedIn', User.isLoggedIn, methods=['GET'])

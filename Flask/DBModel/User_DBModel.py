@@ -39,8 +39,8 @@ class User_DBModel(db.Model):
             return False
         user_info = User_DBModel.query.filter_by(email = email).first()
         if user_info is None:
-                return False
+                return None
         if user_info.password is not None:
                 if user_info.password == password:
-                        return True
-        return False
+                        return user_info
+        return None

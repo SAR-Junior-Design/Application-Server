@@ -24,7 +24,7 @@ class Mission():
         if 'user' in session.keys():
             user = session['user']
             
-            commander = user["email"]
+            commander = user["id"]
             parsed_json = request.get_json()
 
             area = parsed_json["area"]
@@ -34,7 +34,6 @@ class Mission():
 
             mission_id = str(uuid.uuid4())
             # mission_id = "e4ca934d-988d-4a45-9139-c719dcfb491a"
-            print (mission_id)
             mission = Mission_DBModel(mission_id, title, commander, area, description)
             db.session.add(mission)
 
@@ -91,7 +90,7 @@ class Mission():
             parsed_json = request.get_json()
             mission_id = parsed_json["mission_id"]
             drone_id = parsed_json["drone_id"]
-            operator_email = parsed_json["operator_email"]
+            operator_id = parsed_json["operator_id"]
 
             mission = Mission_DBModel.query.filter_by(id = mission_id).first()
 
@@ -106,14 +105,22 @@ class Mission():
                 return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
                 return return_string
 
-            asset = Asset_DBModel(drone_id, operator_email, mission_id)
-            db.session.add(asset)
-            db.session.commit()
+            asset = Asset_DBModel.query.filter(Asset_DBModel.drone_id==drone_id,
+                Asset_DBModel.mission_id==mission_id).first()
+            if asset is None:
+                asset = Asset_DBModel(drone_id, operator_id, mission_id)
+                db.session.add(asset)
+                db.session.commit()
 
-            dict_local = {'code' : 200}
+                dict_local = {'code' : 200}
 
-            return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
-            return return_string
+                return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
+                return return_string
+            else:
+                dict_local = {'code' : 31, 'message': 'Drone already added to mission.'}
+
+                return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
+                return return_string
         else:
             dict_local = {'code': 31, 'message': "Auth error."}
             return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))

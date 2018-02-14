@@ -9,7 +9,7 @@ from Models.Drone import Drone
 from Models.Mission import Mission
 
 
-db.drop_all()
+#db.drop_all()
 db.create_all()
 
 @app.after_request
