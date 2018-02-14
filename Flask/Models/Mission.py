@@ -30,6 +30,7 @@ class Mission():
             area = json.dumps(area, sort_keys=True, indent=4, separators=(',', ': '))
             description = parsed_json["description"]
             title = parsed_json["title"]
+            commander = user['id']
 
             mission_id = str(uuid.uuid4())
             # mission_id = "e4ca934d-988d-4a45-9139-c719dcfb491a"
