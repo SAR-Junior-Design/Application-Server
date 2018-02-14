@@ -27,11 +27,13 @@ class Drone_DBModel(db.Model):
     owner = db.Column(db.Text, db.ForeignKey('users.id', ondelete = 'CASCADE'), primary_key=True)
     description = db.Column(db.Text)
     live_data = db.Column(db.Text, db.ForeignKey('live_drone_data.id', ondelete = 'CASCADE'), primary_key=True)
-        
 
-    def __init__(self, username, description):
-        self.username = username
+
+    def __init__(self, id, owner, description, live_data):
+        self.id = id
+        self.owner = owner
         self.description = description
+        self.live_data = live_data
 
 
 
