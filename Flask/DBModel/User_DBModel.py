@@ -8,8 +8,6 @@ import datetime
 from Utility.Encryptor import Encryptor
 from Utility.color_print import ColorPrint
 
-from DBModel.Session_DBModel import Session_DBModel
-
 encryptor = Encryptor()
 seconds_in_hour = 60*60
 session_inactivity_timeout = datetime.timedelta(0, seconds_in_hour * 2)
@@ -46,45 +44,3 @@ class User_DBModel(db.Model):
                 if user_info.password == password:
                         return True
         return False
-
-    @staticmethod
-    def authenticate_user_cookie(encrypted_cookie):
-        if not encrypted_cookie:
-            return False
-        cookie = encryptor.decryptMessage(encrypted_cookie)
-        email = cookie['email']
-        user = User_DBModel.query.filter_by(email = email).first()
-
-        if user is None:
-            return False
-
-        session = Session_DBModel.query.filter(Session_DBModel.email == cookie['email'], 
-                 Session_DBModel.closed_at == None).first()
-        isNewSession = False
-
-        #is the session over? Does it not exist
-        if session is None:
-            return False               
-        elif datetime.datetime.now() > session.last_activity + session_inactivity_timeout:
-            #this case the session is old.
-            #make sure to close this session.
-            session.closed_at = session.last_activity
-            db.session.commit()
-            return False
-        elif request.remote_addr != cookie['address']: #then someone is spoofing this from afar.
-            return False
-        else:
-            session.last_activity = datetime.datetime.now()
-            db.session.commit()
-
-        if user.password is not None:
-                if user.password == cookie['password']:
-                        return True
-        return False
-
-    @staticmethod
-    def decrypt_cookie(encrypted_cookie):
-        if not encrypted_cookie:
-            return None
-        cookie = encryptor.decryptMessage(encrypted_cookie)
-        return cookie
