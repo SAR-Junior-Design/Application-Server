@@ -13,6 +13,7 @@ from DBModel.User_DBModel import User_DBModel
 from DBModel.Mission_DBModel import Mission_DBModel
 from DBModel.Drone_DBModel import Drone_DBModel
 from DBModel.Asset_DBModel import Asset_DBModel
+from DBModel.Action_DBModel import Action_DBModel
 
 
 class Mission():

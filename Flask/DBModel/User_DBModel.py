@@ -16,13 +16,15 @@ session_inactivity_timeout = datetime.timedelta(0, seconds_in_hour * 2)
 
 class User_DBModel(db.Model):
     __tablename__ = 'users'
-    email = db.Column(db.Text, primary_key=True)
+    id = db.Column(db.Text, primary_key=True)
+    email = db.Column(db.Text)
     name = db.Column(db.Text)
     password = db.Column(db.Text)
     created_at = db.Column(db.DateTime, default=datetime.datetime.utcnow)
     account_type = db.Column(db.Text)
 
-    def __init__(self, name, password, email, account_type):
+    def __init__(self, id, name, password, email, account_type):
+        self.id = id
         self.name = name
         self.password = password
         self.email = email
