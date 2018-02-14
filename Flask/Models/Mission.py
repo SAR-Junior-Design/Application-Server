@@ -24,7 +24,6 @@ class Mission():
         if 'user' in session.keys():
             user = session['user']
             
-            commander = user["id"]
             parsed_json = request.get_json()
 
             area = parsed_json["area"]
@@ -74,6 +73,7 @@ class Mission():
             dict_local["area"] = mission.area
             dict_local["commander"] = mission.commander
             dict_local["closed_at"] = mission.closed_at
+            dict_local["closed_at"] = mission.closed_at.isoformat()
 
             return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
             return return_string
@@ -373,6 +373,37 @@ class Mission():
             return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
             return return_string
 
+    @staticmethod
+    def get_current_mission():
+        if 'user' in session.keys():
+            user = session['user']
+            
+            current_mission = Mission_DBModel.query.filter_by(closed_at = None).first()
+            if current_mission is None:
+                dict_local = {'code': 200, 'message': "no current missions"}
+                return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
+                return return_string
+            dict_local = {}
+            # drones_dict = {}
+            # drones = Drone_DBModel.query.filter_by(mission_id = current_mission.id).all()
+            # for drone in drones:
+            #     drone_dict = {}
+            #     drone_dict["type"] = drone.type
+            #     drones_dict[drone.id] = drone_dict
+            dict_local["mission_id"] = current_mission.id
+            # dict_local["drones"] = drones_dict
+
+            return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
+            return return_string
+
+        else:
+            dict_local = {'code': 31, 'message': "Auth error."}
+            return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
+            return return_string
+            
+
+
+
 
 app.add_url_rule('/register_mission', 'register_mission', Mission.register_mission, methods=['POST'])
 app.add_url_rule('/get_mission_drones', 'get_mission_drones', Mission.get_mission_drones, methods=['POST'])
@@ -385,5 +416,6 @@ app.add_url_rule('/update_mission_area', 'update_mission_area', Mission.update_m
 app.add_url_rule('/start_mission', 'start_mission', Mission.start_mission, methods=['POST'])
 app.add_url_rule('/is_mission_live', 'is_mission_live', Mission.is_mission_live, methods=['POST'])
 app.add_url_rule('/add_area_vertices', 'add_area_vertices', Mission.add_area_vertices, methods=['POST'])
+app.add_url_rule('/get_current_mission', 'get_current_mission', Mission.get_current_mission, methods=['GET'])
 
 
