@@ -73,7 +73,7 @@ class Mission():
             dict_local["area"] = mission.area
             dict_local["commander"] = mission.commander
             dict_local["closed_at"] = mission.closed_at
-            dict_local["closed_at"] = mission.closed_at.isoformat()
+            dict_local["title"] = mission.title
 
             return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
             return return_string
