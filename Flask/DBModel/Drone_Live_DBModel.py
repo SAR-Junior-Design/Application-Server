@@ -1,15 +1,15 @@
-from PostgreSQL.declerations import Base
 from sqlalchemy import Column, VARCHAR, TEXT, TIMESTAMP, func, FLOAT, Integer, JSON
+from flaskapp import db, app
 
 
-class drone_live_db(db.Model):
+class Drone_Live_DBModel(db.Model):
     """
     This is the main table for live drone data. The tunnel server will update this information.
     """
     __tablename__ = 'live_drone_data'
     # Here we define columns for the table person
     # Notice that each column is also a normal Python instance attribute.
-    username = Column(db.TEXT, primary_key=True)
+    id = Column(db.TEXT, primary_key=True)
     description = Column(db.TEXT, nullable=False)
     creation_date = Column(db.TIMESTAMP(0), server_default=func.now())
     last_update = Column(db.TIMESTAMP(0))

@@ -4,10 +4,10 @@ from flaskapp import db, app
 from flask import request, Response, send_file, send_from_directory, session
 from sqlalchemy.dialects.postgresql import JSON
 from DBModel.User_DBModel import User_DBModel
-from DBModel.Session_DBModel import Session_DBModel
 from DBModel.Drone_DBModel import Drone_DBModel
 from DBModel.Mission_DBModel import Mission_DBModel
 from DBModel.Asset_DBModel import Asset_DBModel
+from DBModel.Drone_Live_DBModel import Drone_Live_DBModel
 
 class Drone():
 
@@ -16,11 +16,11 @@ class Drone():
 		if 'user' in session.keys():
 			user = session['user']
 			parsed_json = request.get_json()
-			owner = user["email"]
+			owner = user["id"]
 			drone_id = str(uuid.uuid4())
 			type = parsed_json["type"]
 
-			drone = Drone_DBModel(drone_id, owner, type)
+			drone = Drone_DBModel(drone_id, owner, type, None)
 			db.session.add(drone)
 			db.session.commit()
 
@@ -39,14 +39,14 @@ class Drone():
 		if 'user' in session.keys():
 			user = session['user']
 			print (user)
-			email = user['email']
+			owner = user['id']
 
-			responses = Drone_DBModel.query.join(User_DBModel).filter(Drone_DBModel.owner == email).all()
+			responses = Drone_DBModel.query.join(User_DBModel).filter(Drone_DBModel.owner == owner).all()
 
 			dict_local = {}
 			for response in responses:
 				drone_dict = {}
-				drone_dict["type"] = response.type
+				drone_dict["description"] = response.description
 				dict_local[response.id] = drone_dict
 
 			return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))

@@ -7,8 +7,6 @@ from Utility.color_print import ColorPrint
 import datetime
 from Utility.Encryptor import Encryptor
 
-from DBModel.Session_DBModel import Session_DBModel
-
 from sqlalchemy import Column, VARCHAR, TEXT, TIMESTAMP, func, FLOAT, Integer, JSON
 
 

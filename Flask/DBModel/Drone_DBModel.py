@@ -7,7 +7,6 @@ from Utility.color_print import ColorPrint
 import datetime
 from Utility.Encryptor import Encryptor
 
-from DBModel.Session_DBModel import Session_DBModel
 
 from sqlalchemy import Column, VARCHAR, TEXT, TIMESTAMP, func, FLOAT, Integer, JSON
 
@@ -24,9 +23,9 @@ class Drone_DBModel(db.Model):
     # Here we define db.Columns for the table person
     # Notice that each db.Column is also a normal Python instance attribute.
     id = db.Column(db.Text, primary_key=True)
-    owner = db.Column(db.Text, db.ForeignKey('users.id', ondelete = 'CASCADE'), primary_key=True)
+    owner = db.Column(db.Text, db.ForeignKey('users.id', ondelete = 'CASCADE'))
     description = db.Column(db.Text)
-    live_data = db.Column(db.Text, db.ForeignKey('live_drone_data.id', ondelete = 'CASCADE'), primary_key=True)
+    live_data = db.Column(db.Text, db.ForeignKey('live_drone_data.id', ondelete = 'CASCADE'))
 
 
     def __init__(self, id, owner, description, live_data):
