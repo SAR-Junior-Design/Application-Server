@@ -43,12 +43,12 @@ class Drone():
 
 			responses = Drone_DBModel.query.join(User_DBModel).filter(Drone_DBModel.owner == owner).all()
 
-			array_local = {}
+			array_local = []
 			for response in responses:
 				drone_dict = {}
 				drone_dict["description"] = response.description
 				drone_dict["id"] = response.id
-				array_local += drone_dict
+				array_local += [drone_dict]
 
 			return_string = json.dumps(array_local, sort_keys=True, indent=4, separators=(',', ': '))
 			return return_string
