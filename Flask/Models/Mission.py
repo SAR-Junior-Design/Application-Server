@@ -268,8 +268,8 @@ class Mission():
                 return return_string
 
             #make sure this is the commander
-            email = user["email"]
-            if mission.commander != email:
+            uid = user["id"]
+            if mission.commander != uid:
                 #then this isn't a user that can do this operation.
                 dict_local = {'code': 31, 'message': "This user is not the mission commander."}
                 return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
@@ -302,8 +302,8 @@ class Mission():
                 return return_string
             
             #make sure this is the commander
-            email = user["email"]
-            if mission.commander != email:
+            uid = user["id"]
+            if mission.commander != uid:
                 #then this isn't a user that can do this operation.
                 dict_local = {'code': 31, 'message': "This user is not the mission commander."}
                 return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
@@ -339,8 +339,8 @@ class Mission():
                 return return_string
             
             #make sure this is the commander
-            email = user['email']
-            if mission.commander != email:
+            uid = user['id']
+            if mission.commander != uid:
                 #then this isn't a user that can do this operation.
                 dict_local = {'code': 31, 'message': "This user is not the mission commander."}
                 return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
