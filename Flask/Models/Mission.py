@@ -27,7 +27,6 @@ class Mission():
             parsed_json = request.get_json()
 
             area = parsed_json["area"]
-            area = json.dumps(area, sort_keys=True, indent=4, separators=(',', ': '))
             description = parsed_json["description"]
             title = parsed_json["title"]
             commander = user['id']
