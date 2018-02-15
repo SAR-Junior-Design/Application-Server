@@ -63,17 +63,19 @@ class Mission():
             
             drones = Drone_DBModel.query.join(Asset_DBModel).join(Mission_DBModel).filter(Asset_DBModel.mission_id == mission_id).all()
 
-            dict_local = {}
-            drones_dict = {}
-            for drone in drones:
+            drone_array = []
+            for response in drones:
                 drone_dict = {}
-                drone_dict["type"] = drone.type
-                drones_dict[drone.id] = drone_dict
+                drone_dict["description"] = response.description
+                drone_dict["id"] = response.id
+                drone_array += [drone_dict]
 
-            dict_local["drones"] = drones_dict
+            dict_local = {}
+            dict_local["drones"] = drone_array
             dict_local["area"] = mission.area
             dict_local["commander"] = mission.commander
             dict_local["closed_at"] = mission.closed_at
+            dict_local["description"] = mission.description
             dict_local["title"] = mission.title
 
             return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
@@ -287,6 +289,46 @@ class Mission():
             return return_string
 
     @staticmethod
+    def edit_mission_details():
+        if 'user' in session.keys():
+            user = session['user']
+            parsed_json = request.get_json()
+
+            mission_id = parsed_json["mission_id"]
+
+            mission = Mission_DBModel.query.filter_by(id = mission_id).first()
+
+            if mission is None:
+                dict_local = {'code': 31, 'message': "Mission does not exist."}
+                return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
+                return return_string
+
+            #make sure this is the commander
+            uid = user["id"]
+            if mission.commander != uid:
+                #then this isn't a user that can do this operation.
+                dict_local = {'code': 31, 'message': "This user is not the mission commander."}
+                return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
+                return return_string
+            
+            if 'area' in parsed_json:
+                mission.area = parsed_json['area']
+            if 'description' in parsed_json:
+                mission.description = parsed_json['description']
+            if 'title' in parsed_json:
+                mission.title = parsed_json['title']
+
+            db.session.commit()
+
+            dict_local = {'code' : 200}
+            return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
+            return return_string
+        else:
+            dict_local = {'code': 31, 'message': "Auth error."}
+            return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
+            return return_string
+
+    @staticmethod
     def is_mission_live():
         if 'user' in session.keys():
             user = session['user']
@@ -418,5 +460,6 @@ app.add_url_rule('/start_mission', 'start_mission', Mission.start_mission, metho
 app.add_url_rule('/is_mission_live', 'is_mission_live', Mission.is_mission_live, methods=['POST'])
 app.add_url_rule('/add_area_vertices', 'add_area_vertices', Mission.add_area_vertices, methods=['POST'])
 app.add_url_rule('/get_current_mission', 'get_current_mission', Mission.get_current_mission, methods=['GET'])
+app.add_url_rule('/edit_mission_details', 'edit_mission_details', Mission.edit_mission_details, methods=['POST'])
 
 
