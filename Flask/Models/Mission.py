@@ -74,6 +74,10 @@ class Mission():
             dict_local["area"] = mission.area
             dict_local["commander"] = mission.commander
             dict_local["closed_at"] = mission.closed_at
+            if mission.closed_at is None:
+                dict_local["closed_at"] = mission.closed_at
+            else:
+                dict_local["closed_at"] = mission.closed_at.isoformat()
             dict_local["description"] = mission.description
             dict_local["title"] = mission.title
 
@@ -242,6 +246,7 @@ class Mission():
             for drone in drones:
                 drone_dict = {}
                 drone_dict["type"] = drone.type
+                drone_dict["description"] = drone.description
                 dict_local[drone.id] = drone_dict
 
             return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
@@ -447,20 +452,24 @@ class Mission():
         if 'user' in session.keys():
             user = session['user']
             parsed_json = request.get_json()
+            print (parsed_json)
             mission_id = parsed_json['mission_id']
             mission = Mission_DBModel.query.filter_by(id = mission_id).first()
             if mission is None:
                 dict_local = {'code' : 31, 'message': "Bad mission id."}
                 return_string = json.dumps(dict_local, sort_keys=True, idnent=4, separators=(',', ': '))
+                return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
                 return return_string
             db.session.delete(mission)
             db.session.commit()
             dict_local = {'code': 200}
             return_string = json.dumps(dict_local, sort_keys=True, idnent=4, separators=(',', ': '))
+            return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
             return return_string
         else:
             dict_local = {'code': 31, 'message': "Auth error."}
             return_string = json.dumps(dict_local, sort_keys=True, idnent=4, separators=(',', ': '))
+            return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
             return return_string
 
 
