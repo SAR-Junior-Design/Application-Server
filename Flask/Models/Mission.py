@@ -442,7 +442,26 @@ class Mission():
             dict_local = {'code': 31, 'message': "Auth error."}
             return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
             return return_string
-            
+
+    def delete_mission():
+        if 'user' in session.keys():
+            user = session['user']
+            parsed_json = request.get_json()
+            mission_id = parsed_json['mission_id']
+            mission = Mission_DBModel.query.filter_by(id = mission_id).first()
+            if mission is None:
+                dict_local = {'code' : 31, 'message': "Bad mission id."}
+                return_string = json.dumps(dict_local, sort_keys=True, idnent=4, separators=(',', ': '))
+                return return_string
+            db.session.delete(mission)
+            db.session.commit()
+            dict_local = {'code': 200}
+            return_string = json.dumps(dict_local, sort_keys=True, idnent=4, separators=(',', ': '))
+            return return_string
+        else:
+            dict_local = {'code': 31, 'message': "Auth error."}
+            return_string = json.dumps(dict_local, sort_keys=True, idnent=4, separators=(',', ': '))
+            return return_string
 
 
 
@@ -460,5 +479,6 @@ app.add_url_rule('/is_mission_live', 'is_mission_live', Mission.is_mission_live,
 app.add_url_rule('/add_area_vertices', 'add_area_vertices', Mission.add_area_vertices, methods=['POST'])
 app.add_url_rule('/get_current_mission', 'get_current_mission', Mission.get_current_mission, methods=['GET'])
 app.add_url_rule('/edit_mission_details', 'edit_mission_details', Mission.edit_mission_details, methods=['POST'])
+app.add_url_rule('/delete_mission', 'delete_mission', Mission.delete_mission, methods=['POST'])
 
 
