@@ -18,9 +18,9 @@ class Drone():
 			parsed_json = request.get_json()
 			owner = user["id"]
 			drone_id = str(uuid.uuid4())
-			type = parsed_json["type"]
+			description = parsed_json["description"]
 
-			drone = Drone_DBModel(drone_id, owner, type, None)
+			drone = Drone_DBModel(drone_id, owner, description, None)
 			db.session.add(drone)
 			db.session.commit()
 
