@@ -64,7 +64,7 @@ class User():
 	def list_all_users():
 		if 'user' in session.keys():
 			user = session['user']
-			if User_DBModel.query.filter_by(email = user["email"]).first().account_type == "admin":
+			if User_DBModel.query.filter_by(id = user["id"]).first().account_type == "admin":
 				db_user_devices = User_DBModel.query.all()
 				return_json_list = []
 				for report in db_user_devices:
@@ -109,8 +109,29 @@ class User():
 			return_string = json.dumps(return_json, sort_keys=True, indent=4, separators=(',', ': '))
 			return return_string
 
+	@staticmethod
+	def get_user_info():
+		if 'user' in session.keys():
+			user = session['user']
+			user_info = User_DBModel.query.filter_by(id = user["id"]).first()
+
+			return_dict = {
+				'email': user_info.email,
+				'name': user_info.name,
+				'created_at': str(user_info.created_at)
+			}
+
+			return_string = json.dumps(return_dict, sort_keys=True, indent=4, separators=(',', ': '))
+			return return_string
+		else:
+			dict_local = {'code': 31, 'message': "auth error"}
+			return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
+			return return_string
+
 app.add_url_rule('/isLoggedIn', 'isLoggedIn', User.isLoggedIn, methods=['GET'])
 app.add_url_rule('/login', 'login', User.login, methods=['POST'])
 app.add_url_rule('/logoff', 'logoff', User.logoff, methods=['GET'])
 app.add_url_rule('/list_all_users', 'list_all_users', User.list_all_users, methods=['GET'])
 app.add_url_rule('/register_user', 'register_user', User.register_user, methods=['POST'])
+app.add_url_rule('/get_user_info', 'get_user_info', User.get_user_info, methods=['GET'])
+
