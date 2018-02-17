@@ -79,7 +79,7 @@ class User():
 				return_string = json.dumps(return_json_list, sort_keys=True, indent=4, separators=(',', ': '))
 				return return_string
 			else:
-				dict_local = {'code': 37, 'message': "Permission error " + cookie["email"]}
+				dict_local = {'code': 37, 'message': "Permission error " + user["email"]}
 				return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
 				return return_string
 		else:
