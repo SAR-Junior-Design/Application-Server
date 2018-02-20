@@ -110,6 +110,30 @@ class User():
 			return return_string
 
 	@staticmethod
+	def update_user_info():
+		if 'user' in session.keys():
+			user = session['user']
+			parsed_json = request.get_json()
+			user_info = User_DBModel.query.filter_by(id = user["id"]).first()
+
+			if 'email' in parsed_json:
+				user_info.email = parsed_json['email']
+			if 'password' in parsed_json:
+				user_info.password = parsed_json['password']
+			if 'name' in parsed_json:
+				user_info.name = parsed_json['name']
+
+			db.session.commit()
+
+			return_dict = {'code': 200}
+			return_string = json.dumps(return_dict, sort_keys=True, indent=4, separators=(',', ': '))
+			return return_string
+		else:
+			dict_local = {'code': 31, 'message': "auth error"}
+			return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
+			return return_string
+
+	@staticmethod
 	def get_user_info():
 		if 'user' in session.keys():
 			user = session['user']
@@ -134,4 +158,4 @@ app.add_url_rule('/logoff', 'logoff', User.logoff, methods=['GET'])
 app.add_url_rule('/list_all_users', 'list_all_users', User.list_all_users, methods=['GET'])
 app.add_url_rule('/register_user', 'register_user', User.register_user, methods=['POST'])
 app.add_url_rule('/get_user_info', 'get_user_info', User.get_user_info, methods=['GET'])
-
+app.add_url_rule('/update_user_info', 'update_user_info', User.update_user_info, methods=['POST'])
