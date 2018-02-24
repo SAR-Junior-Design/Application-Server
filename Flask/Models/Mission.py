@@ -9,6 +9,7 @@ from Utility.Encryptor import Encryptor
 from Utility.color_print import ColorPrint
 
 from sqlalchemy.dialects.postgresql import JSON
+from sqlalchemy import or_
 from DBModel.User_DBModel import User_DBModel
 from DBModel.Mission_DBModel import Mission_DBModel
 from DBModel.Drone_DBModel import Drone_DBModel
@@ -196,6 +197,24 @@ class Mission():
             return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
             return return_string
 
+    @staticmethod
+    def get_missions():
+        if 'user' in session.keys():
+            user = session['user']
+
+            missions = Mission_DBModel.query.filter(Mission_DBModel.commander == user['id']).all()
+
+            mission_list = []
+            for mission in missions:
+                mission_list += [{'id': mission.id,'title': mission.title,
+                'description': mission.description, 'commander': mission.commander}]
+
+            return_string = json.dumps(mission_list, sort_keys=True, indent=4, separators=(',', ': '))
+            return return_string
+        else:
+            dict_local = {'code': 31, 'message': "Auth error."}
+            return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
+            return return_string
 
     @staticmethod
     def get_user_missions():
@@ -489,5 +508,6 @@ app.add_url_rule('/add_area_vertices', 'add_area_vertices', Mission.add_area_ver
 app.add_url_rule('/get_current_mission', 'get_current_mission', Mission.get_current_mission, methods=['GET'])
 app.add_url_rule('/edit_mission_details', 'edit_mission_details', Mission.edit_mission_details, methods=['POST'])
 app.add_url_rule('/delete_mission', 'delete_mission', Mission.delete_mission, methods=['POST'])
+app.add_url_rule('/get_missions', 'get_missions', Mission.get_missions, methods=['GET'])
 
 

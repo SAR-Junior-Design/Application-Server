@@ -20,6 +20,7 @@ class User_DBModel(db.Model):
     password = db.Column(db.Text)
     created_at = db.Column(db.DateTime, default=datetime.datetime.utcnow)
     account_type = db.Column(db.Text)
+    picture = db.Column(db.Text)
 
     def __init__(self, id, name, password, email, account_type):
         self.id = id
