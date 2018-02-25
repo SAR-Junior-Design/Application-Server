@@ -31,10 +31,12 @@ class Mission():
             description = parsed_json["description"]
             title = parsed_json["title"]
             commander = user['id']
+            starts_at = parsed_json['starts_at']
+            ends_at = parsed_json['ends_at']
 
             mission_id = str(uuid.uuid4())
             # mission_id = "e4ca934d-988d-4a45-9139-c719dcfb491a"
-            mission = Mission_DBModel(mission_id, title, commander, area, description)
+            mission = Mission_DBModel(mission_id, title, commander, area, description, starts_at, ends_at)
             db.session.add(mission)
 
             db.session.commit()
@@ -202,12 +204,34 @@ class Mission():
         if 'user' in session.keys():
             user = session['user']
 
-            missions = Mission_DBModel.query.filter(Mission_DBModel.commander == user['id']).all()
+            commanded_missions = Mission_DBModel.query.filter(Mission_DBModel.commander == user['id']).all()
 
             mission_list = []
-            for mission in missions:
+            for mission in commanded_missions:
+
+                drones = Drone_DBModel.query.join(Asset_DBModel).filter(Drone_DBModel.id == Asset_DBModel.drone_id).filter(Asset_DBModel.mission_id == mission.id).all()
+                
+                drone_list = []
+                for drone in drones:
+                    drone_list += [{'id': drone.id, 'description': drone.description}]
+
                 mission_list += [{'id': mission.id,'title': mission.title,
-                'description': mission.description, 'commander': mission.commander}]
+                'description': mission.description, 'commander': mission.commander,
+                'starts_at': str(mission.starts_at), 'ends_at': str(mission.ends_at),
+                'drones': drone_list, 'num_drones': len(drone_list)}]
+
+            participating_missions = Mission_DBModel.query.join(Asset_DBModel, Mission_DBModel.id == Asset_DBModel.mission_id).filter(Asset_DBModel.operator == user['id']).all()
+            for mission in participating_missions:
+                drones = Drone_DBModel.query.join(Asset_DBModel).filter(Drone_DBModel.id == Asset_DBModel.drone_id).filter(Asset_DBModel.mission_id == mission.id).all()
+                
+                drone_list = []
+                for drone in drones:
+                    drone_list += [{'id': drone.id, 'description': drone.description}]
+
+                mission_list += [{'id': mission.id,'title': mission.title,
+                'description': mission.description, 'commander': mission.commander,
+                'starts_at': str(mission.starts_at), 'ends_at': str(mission.ends_at),
+                'drones': drone_list, 'num_drones': len(drone_list)}]
 
             return_string = json.dumps(mission_list, sort_keys=True, indent=4, separators=(',', ': '))
             return return_string

@@ -17,15 +17,19 @@ class Mission_DBModel(db.Model):
     description = db.Column(db.Text)
     area = db.Column(db.JSON) #the area of a mission is described in GeoJSON
     created_at = db.Column(db.DateTime, default=datetime.datetime.utcnow)
+    starts_at = db.Column(db.DateTime, default=None)
+    ends_at = db.Column(db.DateTime, default=None)
     closed_at = db.Column(db.DateTime, default=None)
     current_action = db.column(db.Text, db.ForeignKey('actions.id'))
 
-    def __init__(self, id, title, commander, area, description):
+    def __init__(self, id, title, commander, area, description, starts_at, ends_at):
         self.id = id
         self.title = title
         self.commander = commander
         self.area = area
         self.description = description
+        self.starts_at = starts_at
+        self.ends_at = ends_at
 
     def __repr__(self):
         return '<id {}>'.format(self.id)
