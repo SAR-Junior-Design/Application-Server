@@ -15,6 +15,17 @@ session_inactivity_timeout = datetime.timedelta(0, seconds_in_hour * 2)
 class User():
 
 	@staticmethod
+	def is_government_official():
+		if 'user' in session.keys():
+			user = session['user']
+			if User_DBModel.query.filter_by(id = user["id"]).first().account_type == "government_official":
+				return make_response(str(True))
+			else:
+				return make_response(str(False))
+		else:
+			return make_response(str(False))
+
+	@staticmethod
 	def isLoggedIn():
 		return make_response(str('user' in session.keys()))
 
@@ -153,6 +164,7 @@ class User():
 			return return_string
 
 app.add_url_rule('/isLoggedIn', 'isLoggedIn', User.isLoggedIn, methods=['GET'])
+app.add_url_rule('/is_government_official', 'is_government_official', User.is_government_official, methods=['GET'])
 app.add_url_rule('/login', 'login', User.login, methods=['POST'])
 app.add_url_rule('/logoff', 'logoff', User.logoff, methods=['GET'])
 app.add_url_rule('/list_all_users', 'list_all_users', User.list_all_users, methods=['GET'])
