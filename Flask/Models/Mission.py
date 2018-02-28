@@ -54,37 +54,24 @@ class Mission():
             user = session['user']
             parsed_json = request.get_json()
 
-            mission_id = parsed_json["mission_id"]
+            mission_id = parsed_json['mission_id']
+            mission = Mission_DBModel.query.filter(Mission_DBModel.id == mission_id).first()
 
-            mission = Mission_DBModel.query.filter_by(id = mission_id).first()
 
-            if mission is None:
-                dict_local = {'code': 31, 'message': "Mission does not exist."}
-                return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
-                return return_string
+            drones = Drone_DBModel.query.join(Asset_DBModel).filter(Drone_DBModel.id == Asset_DBModel.drone_id).filter(Asset_DBModel.mission_id == mission_id).all()
             
-            drones = Drone_DBModel.query.join(Asset_DBModel).join(Mission_DBModel).filter(Asset_DBModel.mission_id == mission_id).all()
+            drone_list = []
+            for drone in drones:
+                drone_list += [{'id': drone.id, 'description': drone.description}]
 
-            drone_array = []
-            for response in drones:
-                drone_dict = {}
-                drone_dict["description"] = response.description
-                drone_dict["id"] = response.id
-                drone_array += [drone_dict]
+            commander = User_DBModel.query.filter_by(id = mission.commander).first()
 
-            dict_local = {}
-            dict_local["drones"] = drone_array
-            dict_local["area"] = mission.area
-            dict_local["commander"] = mission.commander
-            dict_local["closed_at"] = mission.closed_at
-            if mission.closed_at is None:
-                dict_local["closed_at"] = mission.closed_at
-            else:
-                dict_local["closed_at"] = mission.closed_at.isoformat()
-            dict_local["description"] = mission.description
-            dict_local["title"] = mission.title
-
-            return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
+            mission_info = {'id': mission_id,'title': mission.title,
+            'description': mission.description, 'commander': commander.name,
+            'starts_at': str(mission.starts_at), 'ends_at': str(mission.ends_at),
+            'drones': drone_list, 'num_drones': len(drone_list), 'clearance': mission.clearance}
+            
+            return_string = json.dumps(mission_info, sort_keys=True, indent=4, separators=(',', ': '))
             return return_string
         else:
             dict_local = {'code': 31, 'message': "Auth error."}
