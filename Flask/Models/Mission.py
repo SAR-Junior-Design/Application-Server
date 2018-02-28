@@ -69,7 +69,8 @@ class Mission():
             mission_info = {'id': mission_id,'title': mission.title,
             'description': mission.description, 'commander': commander.name,
             'starts_at': str(mission.starts_at), 'ends_at': str(mission.ends_at),
-            'drones': drone_list, 'num_drones': len(drone_list), 'clearance': mission.clearance}
+            'drones': drone_list, 'num_drones': len(drone_list), 'clearance': mission.clearance,
+            'area': commander.area}
             
             return_string = json.dumps(mission_info, sort_keys=True, indent=4, separators=(',', ': '))
             return return_string
