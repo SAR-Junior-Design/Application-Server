@@ -517,21 +517,48 @@ class Mission():
             mission = Mission_DBModel.query.filter_by(id = mission_id).first()
             if mission is None:
                 dict_local = {'code' : 31, 'message': "Bad mission id."}
-                return_string = json.dumps(dict_local, sort_keys=True, idnent=4, separators=(',', ': '))
                 return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
                 return return_string
             db.session.delete(mission)
             db.session.commit()
             dict_local = {'code': 200}
-            return_string = json.dumps(dict_local, sort_keys=True, idnent=4, separators=(',', ': '))
             return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
             return return_string
         else:
             dict_local = {'code': 31, 'message': "Auth error."}
-            return_string = json.dumps(dict_local, sort_keys=True, idnent=4, separators=(',', ': '))
             return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
             return return_string
 
+    @staticmethod
+    def edit_clearance():
+        if 'user' in session.keys():
+            user = session['user']
+            if User_DBModel.query.filter_by(id = user["id"]).first().account_type == "government_official":
+                parsed_json = request.get_json()
+
+                mission_id = parsed_json['mission_id']
+                mission = Mission_DBModel.query.filter(Mission_DBModel.id == mission_id).first()
+
+                if mission is None:
+                    dict_local = {'code': 31, 'message': "Bad mission id."}
+                    return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
+                    return return_string
+                new_clearance = {'state': parsed_json['new_clearance_state'],
+                'official': user['id']}
+                mission.clearance = new_clearance
+
+                db.session.commit()
+
+                dict_local = {'code' : 200}
+                return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
+                return return_string
+            dict_local = {'code': 50, 'message': "Not authorized to approve missions."}
+            return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
+            return return_string
+        else:
+            dict_local = {'code': 31, 'message': "Auth error."}
+            return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
+            return return_string
 
 
 
@@ -550,5 +577,5 @@ app.add_url_rule('/get_current_mission', 'get_current_mission', Mission.get_curr
 app.add_url_rule('/edit_mission_details', 'edit_mission_details', Mission.edit_mission_details, methods=['POST'])
 app.add_url_rule('/delete_mission', 'delete_mission', Mission.delete_mission, methods=['POST'])
 app.add_url_rule('/get_missions', 'get_missions', Mission.get_missions, methods=['GET'])
-
+app.add_url_rule('/edit_clearance', 'edit_clearance', Mission.edit_clearance, methods=['POST'])
 
