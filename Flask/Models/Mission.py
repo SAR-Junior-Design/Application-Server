@@ -307,7 +307,6 @@ class Mission():
             dict_local = {}
             for drone in drones:
                 drone_dict = {}
-                drone_dict["type"] = drone.type
                 drone_dict["description"] = drone.description
                 dict_local[drone.id] = drone_dict
 
@@ -514,7 +513,6 @@ class Mission():
         if 'user' in session.keys():
             user = session['user']
             parsed_json = request.get_json()
-            print (parsed_json)
             mission_id = parsed_json['mission_id']
             mission = Mission_DBModel.query.filter_by(id = mission_id).first()
             if mission is None:
