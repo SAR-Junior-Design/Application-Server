@@ -203,6 +203,22 @@ class Drone():
             return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
             return return_string
 
+    def get_live_drones():
+        if 'user' in session.keys():
+            user = session['user']
+            live_missions = Mission_DBModel.query.filter(Mission_DBModel.closed_at == None).all()
+            drones_list = []
+            for mission in live_missions:
+                assets = Asset_DBModel.query.filter(Asset_DBModel.mission_id == mission.id).all()
+                for asset in assets:
+                    drones_list += [{'id': asset.drone_id}]
+            return_string = json.dumps(drones_list, sort_keys=True, indent=4, separators=(',', ': '))
+            return return_string
+        else:
+            dict_local = {'code': 31, 'message': "Auth error."}
+            return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
+            return return_string
+
 
 app.add_url_rule('/get_mission_update', 'get_mission_update', Drone.get_mission_update, methods=['POST'])
 app.add_url_rule('/get_user_drones', 'get_user_drones', Drone.get_user_drones, methods=['GET'])
@@ -214,3 +230,5 @@ app.add_url_rule('/delete_drone', 'delete_drone', Drone.delete_drone, methods=['
 
 app.add_url_rule('/api/v1/get_user_drones', 'get_user_drones_v1', Drone.get_user_drones_v1, methods=['POST'])
 app.add_url_rule('/api/v1/register_drone', 'register_drone_v2', Drone.register_drone_v1, methods=['POST'])
+
+app.add_url_rule('/get_live_drones', 'get_live_drones', Drone.get_live_drones, methods=['GET'])
