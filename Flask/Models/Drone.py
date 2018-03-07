@@ -10,6 +10,9 @@ from DBModel.Asset_DBModel import Asset_DBModel
 from DBModel.Drone_Live_DBModel import Drone_Live_DBModel
 
 
+from sqlalchemy.schema import CreateTable
+
+
 class Drone():
 
     @staticmethod
@@ -66,7 +69,6 @@ class Drone():
     def get_user_drones():
         if 'user' in session.keys():
             user = session['user']
-            print (user)
             owner = user['id']
 
             responses = Drone_DBModel.query.join(User_DBModel).filter(Drone_DBModel.owner == owner).all()
@@ -89,14 +91,17 @@ class Drone():
     def get_user_drones_v1():
         if 'user' in session.keys():
             user = session['user']
-            print (user)
             owner = user['id']
 
-            responses = Drone_DBModel.query.join(User_DBModel).filter(Drone_DBModel.owner == owner).all()
+            responses = Drone_DBModel.query.filter_by(owner=owner).all()
+
+            #print(CreateTable(Drone_DBModel.__table__))
+
 
             array_local = []
             for response in responses:
                 drone_dict = {}
+
                 drone_dict["description"] = response.description
                 drone_dict["id"] = response.id
 
@@ -228,7 +233,7 @@ app.add_url_rule('/get_drones_past_missions', 'get_drones_past_missions', Drone.
 app.add_url_rule('/delete_drone', 'delete_drone', Drone.delete_drone, methods=['POST'])
 
 
-app.add_url_rule('/api/v1/get_user_drones', 'get_user_drones_v1', Drone.get_user_drones_v1, methods=['POST'])
+app.add_url_rule('/api/v1/get_user_drones', 'get_user_drones_v1', Drone.get_user_drones_v1, methods=['GET'])
 app.add_url_rule('/api/v1/register_drone', 'register_drone_v2', Drone.register_drone_v1, methods=['POST'])
 
 app.add_url_rule('/get_live_drones', 'get_live_drones', Drone.get_live_drones, methods=['GET'])
