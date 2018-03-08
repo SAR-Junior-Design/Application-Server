@@ -237,7 +237,7 @@ class Mission():
                     'drones': drone_list, 'num_drones': len(drone_list), 'clearance': mission.clearance,
                     'area': mission.area}]
 
-                participating_missions = Mission_DBModel.query.join(Asset_DBModel, Mission_DBModel.id == Asset_DBModel.mission_id).filter(Asset_DBModel.operator == user['id']).all()
+                participating_missions = Mission_DBModel.query.join(Asset_DBModel, Mission_DBModel.id == Asset_DBModel.mission_id).filter(Asset_DBModel.operator == user['id'], Mission_DBModel.commander != user['id']).all()
                 for mission in participating_missions:
                     drones = Drone_DBModel.query.join(Asset_DBModel).filter(Drone_DBModel.id == Asset_DBModel.drone_id).filter(Asset_DBModel.mission_id == mission.id).all()
                     
