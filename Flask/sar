@@ -1,0 +1,53 @@
+CREATE USER Ubuntu WITH LOGIN PASSWORD 'elephants_remember_1984'
+create database sar;
+quit
+\q
+CREATE USER ubuntu WITH LOGIN PASSWORD 'elephants_remember_1984'
+CREATE DATABASE sar
+GRANT ALL PRIVILEGES ON DATABASE sar TO ubuntu
+\q
+CREATE USER ubuntu WITH LOGIN PASSWORD 'elephants_remember_1984';
+CREATE DATABASE sar;
+GRANT ALL PRIVILEGES ON DATABASE sar TO ubuntu
+;
+\q
+insert into users values ('samcrane8@gmail.com','kaan','lawrence',CURRENT_TIMESTAMP,'admin');
+\q
+CREATE ROLE ubuntu WITH LOGIN PASSWORD 'elephants_remember_1984'
+;
+\du
+CREATE DATABASE sar
+;
+\q
+INSERT INTO USER VALUES ('samcrane8@gmail.com', 'kaan', 'lawrence', CURRENT_TIMESTAMP, 'admin');
+INSERT INTO USERS VALUES ('samcrane8@gmail.com', 'kaan', 'lawrence', CURRENT_TIMESTAMP, 'admin');
+\q
+select * from users;
+delete from missions;
+drop table missions;
+drop table assets;
+drop table missions;
+drop table drone;
+drop table drones;
+drop table users;
+drop table session;
+drop table users;
+\q
+create role ubuntu with login password 'elephants_remember_1984';
+\q
+insert into users values ('samcrane8@gmail.com','kaan','lawrence',CURRENT_TIMESTAMP,'admin');
+\dt
+\dt users
+users
+;
+\d users
+insert into users values ('123', 'samcrane8@gmail.com','kaan','lawrence',CURRENT_TIMESTAMP,'admin');
+\q
+\dt
+create user Ubuntu with password 'elephants_remember_1984'
+;
+create database sar;
+table sar
+;
+\l
+\s sar
