@@ -7,6 +7,7 @@ from flaskapp import app, db
 from Models.User import User
 from Models.Drone import Drone
 from Models.Mission import Mission
+from Models.Document import Document
 
 
 #db.drop_all()
