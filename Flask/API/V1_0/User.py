@@ -5,7 +5,7 @@ from Utility.color_print import ColorPrint
 from flaskapp import db, app
 from flask import request, Response, send_file, send_from_directory, make_response, session
 from sqlalchemy.dialects.postgresql import JSON
-from DBModel.User_DBModel import User_DBModel
+from Models.User_DBModel import User_DBModel
 import datetime
 
 encryptor = Encryptor()

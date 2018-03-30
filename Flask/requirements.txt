@@ -1,3 +1,7 @@
-Flask
-Flask-Mail
-Flask-Cors
+flask
+flask-mail
+flask-cors
+flask-sqlalchemy
+flask-session
+psycopg2
+cryptography

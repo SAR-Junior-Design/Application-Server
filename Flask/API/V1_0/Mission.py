@@ -2,11 +2,12 @@ import json
 import uuid
 import datetime
 
-from flaskapp import db, app
+from flaskapp import db, app, mail
 from flask import request, Response, send_file, send_from_directory, make_response, session
 
 from Utility.Encryptor import Encryptor
 from Utility.color_print import ColorPrint
+from flask_mail import Mail,  Message
 
 from sqlalchemy.dialects.postgresql import JSON
 from sqlalchemy import or_
@@ -38,6 +39,19 @@ class Mission():
             # mission_id = "e4ca934d-988d-4a45-9139-c719dcfb491a"
             mission = Mission_DBModel(mission_id, title, commander, area, description, starts_at, ends_at)
             db.session.add(mission)
+
+            gov_offs = User_DBModel.query.filter(User_DBModel.account_type=='government_official').all()
+
+            for gov_off in gov_offs:
+                #send hunnicutt an email saying that it worked!
+                msg = Message(
+                    '[SAR] Mission Registered',
+                    sender='samcrane8@gmail.com',
+                    recipients=[gov_off.email]
+                )
+                msg.body = "A mission has been created."
+                print(msg)
+                mail.send(msg)
 
             db.session.commit()
             dict_local = {'mission_id' : mission_id, 'code':200}
