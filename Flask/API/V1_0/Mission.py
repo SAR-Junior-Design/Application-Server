@@ -10,11 +10,11 @@ from Utility.color_print import ColorPrint
 
 from sqlalchemy.dialects.postgresql import JSON
 from sqlalchemy import or_
-from DBModel.User_DBModel import User_DBModel
-from DBModel.Mission_DBModel import Mission_DBModel
-from DBModel.Drone_DBModel import Drone_DBModel
-from DBModel.Asset_DBModel import Asset_DBModel
-from DBModel.Action_DBModel import Action_DBModel
+from Models.User_DBModel import User_DBModel
+from Models.Mission_DBModel import Mission_DBModel
+from Models.Drone_DBModel import Drone_DBModel
+from Models.Asset_DBModel import Asset_DBModel
+from Models.Action_DBModel import Action_DBModel
 
 
 class Mission():
