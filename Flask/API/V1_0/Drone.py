@@ -225,15 +225,15 @@ class Drone():
             return return_string
 
 
-app.add_url_rule('/v1_0/get_mission_update', 'get_mission_update', Drone.get_mission_update, methods=['POST'])
-app.add_url_rule('/v1_0/get_user_drones', 'get_user_drones', Drone.get_user_drones, methods=['GET'])
-app.add_url_rule('/v1_0/register_drone', 'register_drone', Drone.register_drone, methods=['POST'])
-app.add_url_rule('/v1_0/get_drones_past_missions', 'get_drones_past_missions', Drone.get_drones_past_missions,
+app.add_url_rule('/v1_0/get_mission_update', '/v1_0/get_mission_update', Drone.get_mission_update, methods=['POST'])
+app.add_url_rule('/v1_0/get_user_drones', '/v1_0/get_user_drones', Drone.get_user_drones, methods=['GET'])
+app.add_url_rule('/v1_0/register_drone', '/v1_0/register_drone', Drone.register_drone, methods=['POST'])
+app.add_url_rule('/v1_0/get_drones_past_missions', '/v1_0/get_drones_past_missions', Drone.get_drones_past_missions,
                  methods=['POST'])
-app.add_url_rule('/v1_0/delete_drone', 'delete_drone', Drone.delete_drone, methods=['POST'])
+app.add_url_rule('/v1_0/delete_drone', '/v1_0/delete_drone', Drone.delete_drone, methods=['POST'])
 
 
-app.add_url_rule('/v1_0/get_user_drones', 'get_user_drones_v1', Drone.get_user_drones_v1, methods=['GET'])
-app.add_url_rule('/v1_0/register_drone', 'register_drone_v2', Drone.register_drone_v1, methods=['POST'])
+app.add_url_rule('/v1_0/get_user_drones', '/v1_0/get_user_drones', Drone.get_user_drones_v1, methods=['GET'])
+app.add_url_rule('/v1_0/register_drone', '/v1_0/register_drone', Drone.register_drone_v1, methods=['POST'])
 
-app.add_url_rule('/v1_0/get_live_drones', 'get_live_drones', Drone.get_live_drones, methods=['GET'])
+app.add_url_rule('/v1_0/get_live_drones', '/v1_0/get_live_drones', Drone.get_live_drones, methods=['GET'])

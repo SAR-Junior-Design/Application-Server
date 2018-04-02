@@ -82,5 +82,5 @@ class Drone():
             return_string = json.dumps(array_local, sort_keys=True, indent=4, separators=(',', ': '))
             return return_string
 
-app.add_url_rule('/v1_1/get_user_drones', 'get_user_drones', Drone.get_user_drones, methods=['GET'])
-app.add_url_rule('/v1_1/register_drone', 'register_drone', Drone.register_drone, methods=['POST'])
+app.add_url_rule('/v1_1/get_user_drones', '/v1_1/get_user_drones', Drone.get_user_drones, methods=['GET'])
+app.add_url_rule('/v1_1/register_drone', '/v1_1/register_drone', Drone.register_drone, methods=['POST'])

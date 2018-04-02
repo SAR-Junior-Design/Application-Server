@@ -4,10 +4,11 @@ from flask import request
 
 from flaskapp import app, db
 
-from API.V1_0.User import User
-from API.V1_0.Drone import Drone
-from API.V1_0.Mission import Mission
+from API.V1_0.User import User as V1_0_User
+from API.V1_0.Drone import Drone as V1_0_Drone
+from API.V1_0.Mission import Mission as V1_0_Mission
 
+from API.V1_1.Drone import Drone as V1_1_Drone
 
 #db.drop_all()
 db.create_all()
