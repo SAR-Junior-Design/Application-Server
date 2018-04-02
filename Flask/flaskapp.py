@@ -32,7 +32,7 @@ app.config['MAIL_USERNAME'] = 'samcrane8@gmail.com'
 app.config['MAIL_PASSWORD'] = 'tbbkptgsqxsfiuwn'
 app.config['MAIL_DEFAULT_SENDER'] = None
 app.config['MAIL_MAX_EMAILS'] = None
-app.config['MAIL_SUPPRESS_SEND'] = True
+#app.config['MAIL_SUPPRESS_SEND'] = True
 app.config['MAIL_ASCII_ATTACHMENTS'] = False
 
 mail = Mail(app) #use this to send mail messages.

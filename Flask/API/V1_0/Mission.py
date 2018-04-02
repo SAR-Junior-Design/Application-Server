@@ -49,7 +49,9 @@ class Mission():
                     sender='samcrane8@gmail.com',
                     recipients=[gov_off.email]
                 )
-                msg.body = "A mission has been created."
+                msg.body = "A mission has been created by {0}.\n\n ".format(user['name'])
+                msg.body += "This mission stars at: {0}\n".format(starts_at)
+                msg.body += "this mission ends at: {0}".format(ends_at)
                 print(msg)
                 mail.send(msg)
 

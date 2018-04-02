@@ -40,7 +40,7 @@ class User():
 		if user_info is not None:
 			#then this data is good, and we're in.
 
-			user = {'id': user_info.id, 'email' : email, 'password' : password}
+			user = {'id': user_info.id, 'name': user_info.name, 'email' : email, 'password' : password}
 			
 			if 'user' in session.keys():
 				dict_local = {'code': 200, 'message': "already logged in"}
@@ -104,7 +104,7 @@ class User():
 		email = parsed_json["email"]
 		password = parsed_json["password"]
 		name = parsed_json["name"]
-		account_type = parsed_json["account_type"]
+		account_type = 'operator'
 
 		if User_DBModel.query.filter_by(email = email).first() is None:
 			id = str(uuid.uuid4())

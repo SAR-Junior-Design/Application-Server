@@ -3,5 +3,5 @@ flask-mail
 flask-cors
 flask-sqlalchemy
 flask-session
-psycopg2
+psycopg2-binary
 cryptography
