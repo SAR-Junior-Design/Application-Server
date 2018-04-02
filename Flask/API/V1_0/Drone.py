@@ -233,7 +233,4 @@ app.add_url_rule('/v1_0/get_drones_past_missions', '/v1_0/get_drones_past_missio
 app.add_url_rule('/v1_0/delete_drone', '/v1_0/delete_drone', Drone.delete_drone, methods=['POST'])
 
 
-app.add_url_rule('/v1_0/get_user_drones', '/v1_0/get_user_drones', Drone.get_user_drones_v1, methods=['GET'])
-app.add_url_rule('/v1_0/register_drone', '/v1_0/register_drone', Drone.register_drone_v1, methods=['POST'])
-
 app.add_url_rule('/v1_0/get_live_drones', '/v1_0/get_live_drones', Drone.get_live_drones, methods=['GET'])
