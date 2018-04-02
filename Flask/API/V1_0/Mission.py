@@ -2,19 +2,20 @@ import json
 import uuid
 import datetime
 
-from flaskapp import db, app
+from flaskapp import db, app, mail
 from flask import request, Response, send_file, send_from_directory, make_response, session
 
 from Utility.Encryptor import Encryptor
 from Utility.color_print import ColorPrint
+from flask_mail import Mail,  Message
 
 from sqlalchemy.dialects.postgresql import JSON
 from sqlalchemy import or_
-from DBModel.User_DBModel import User_DBModel
-from DBModel.Mission_DBModel import Mission_DBModel
-from DBModel.Drone_DBModel import Drone_DBModel
-from DBModel.Asset_DBModel import Asset_DBModel
-from DBModel.Action_DBModel import Action_DBModel
+from Models.User_DBModel import User_DBModel
+from Models.Mission_DBModel import Mission_DBModel
+from Models.Drone_DBModel import Drone_DBModel
+from Models.Asset_DBModel import Asset_DBModel
+from Models.Action_DBModel import Action_DBModel
 
 
 class Mission():
@@ -38,6 +39,21 @@ class Mission():
             # mission_id = "e4ca934d-988d-4a45-9139-c719dcfb491a"
             mission = Mission_DBModel(mission_id, title, commander, area, description, starts_at, ends_at)
             db.session.add(mission)
+
+            gov_offs = User_DBModel.query.filter(User_DBModel.account_type=='government_official').all()
+
+            for gov_off in gov_offs:
+                #send hunnicutt an email saying that it worked!
+                msg = Message(
+                    '[SAR] Mission Registered',
+                    sender='samcrane8@gmail.com',
+                    recipients=[gov_off.email]
+                )
+                msg.body = "A mission has been created by {0}.\n\n ".format(user['name'])
+                msg.body += "This mission stars at: {0}\n".format(starts_at)
+                msg.body += "this mission ends at: {0}".format(ends_at)
+                print(msg)
+                mail.send(msg)
 
             db.session.commit()
             dict_local = {'mission_id' : mission_id, 'code':200}

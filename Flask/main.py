@@ -4,10 +4,9 @@ from flask import request
 
 from flaskapp import app, db
 
-from Models.User import User
-from Models.Drone import Drone
-from Models.Mission import Mission
-from Models.Document import Document
+from API.V1_0.User import User
+from API.V1_0.Drone import Drone
+from API.V1_0.Mission import Mission
 
 
 #db.drop_all()

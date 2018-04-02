@@ -1,1 +1,3 @@
 *.pyc
+Flask/sar-appserver/
+Flask/sar-env/
