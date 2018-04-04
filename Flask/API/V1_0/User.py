@@ -7,6 +7,7 @@ from flask import request, Response, send_file, send_from_directory, make_respon
 from sqlalchemy.dialects.postgresql import JSON
 from Models.User_DBModel import User_DBModel
 import datetime
+import hashlib
 
 encryptor = Encryptor()
 seconds_in_hour = 60*60
@@ -103,6 +104,7 @@ class User():
 		parsed_json = request.get_json()
 		email = parsed_json["email"]
 		password = parsed_json["password"]
+		password = str(hashlib.sha256(password.encode()).hexdigest())
 		name = parsed_json["name"]
 		account_type = 'operator'
 
