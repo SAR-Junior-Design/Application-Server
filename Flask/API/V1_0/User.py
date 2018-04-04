@@ -157,7 +157,8 @@ class User():
 				'email': user_info.email,
 				'name': user_info.name,
 				'created_at': str(user_info.created_at),
-				'id': user['id']
+				'id': user['id'],
+				'account_type': user_info.account_type
 			}
 
 			return_string = json.dumps(return_dict, sort_keys=True, indent=4, separators=(',', ': '))
