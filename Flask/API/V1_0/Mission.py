@@ -224,7 +224,7 @@ class Mission():
                     commander = User_DBModel.query.filter_by(id = mission.commander).first()
 
                     mission_list += [{'id': mission.id,'title': mission.title,
-                    'description': mission.description, 'commander': commander.name, 'commander-id': mission.commander,
+                    'description': mission.description, 'commander': commander.name, 'commander_id': mission.commander,
                     'starts_at': str(mission.starts_at), 'ends_at': str(mission.ends_at),
                     'drones': drone_list, 'num_drones': len(drone_list), 'clearance': mission.clearance,
                     'area': mission.area}]
@@ -248,7 +248,7 @@ class Mission():
                     commander = User_DBModel.query.filter_by(id = mission.commander).first()
 
                     mission_list += [{'id': mission.id,'title': mission.title,
-                    'description': mission.description, 'commander': commander.name, 'commander-id': mission.commander,
+                    'description': mission.description, 'commander': commander.name, 'commander_id': mission.commander,
                     'starts_at': str(mission.starts_at), 'ends_at': str(mission.ends_at),
                     'drones': drone_list, 'num_drones': len(drone_list), 'clearance': mission.clearance,
                     'area': mission.area}]
@@ -264,7 +264,7 @@ class Mission():
                     commander = User_DBModel.query.filter_by(id = mission.commander).first()
 
                     mission_list += [{'id': mission.id,'title': mission.title,
-                    'description': mission.description, 'commander': commander.name, 'commander-id': mission.commander,
+                    'description': mission.description, 'commander': commander.name, 'commander_id': mission.commander,
                     'starts_at': str(mission.starts_at), 'ends_at': str(mission.ends_at),
                     'drones': drone_list, 'num_drones': len(drone_list), 'clearance': mission.clearance}]
 
