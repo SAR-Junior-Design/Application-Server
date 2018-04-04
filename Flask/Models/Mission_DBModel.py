@@ -14,6 +14,7 @@ class Mission_DBModel(db.Model):
     id = db.Column(db.Text, primary_key=True)
     commander = db.Column(db.Text, db.ForeignKey('users.id'))
     title = db.Column(db.Text)
+    type = db.Column(db.Text) # Commercial, Recreational, Research
     description = db.Column(db.Text)
     area = db.Column(db.JSON) #the area of a mission is described in GeoJSON
     created_at = db.Column(db.DateTime, default=datetime.datetime.utcnow)
@@ -31,6 +32,17 @@ class Mission_DBModel(db.Model):
         self.description = description
         self.starts_at = starts_at
         self.ends_at = ends_at
+
+    def __init__(self, id, title, commander, area, description, starts_at, ends_at, type):
+        self.id = id
+        self.title = title
+        self.commander = commander
+        self.area = area
+        self.description = description
+        self.starts_at = starts_at
+        self.ends_at = ends_at
+        self.type = type
+
 
     def __repr__(self):
         return '<id {}>'.format(self.id)
