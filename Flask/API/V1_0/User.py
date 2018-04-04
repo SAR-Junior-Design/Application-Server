@@ -36,6 +36,7 @@ class User():
 		parsed_json = request.get_json()
 		email = parsed_json["email"]
 		password = parsed_json["password"]
+		password = str(hashlib.sha256(password.encode()).hexdigest())
 
 		user_info = User_DBModel.authenticate_email_password(email, password)
 		if user_info is not None:
