@@ -1,6 +1,8 @@
+
 flask
 flask-mail
 flask-cors
+uwsgi
 flask-sqlalchemy
 flask-session
 psycopg2-binary

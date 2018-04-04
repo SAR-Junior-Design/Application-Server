@@ -28,6 +28,10 @@ insert into users values ('samcrane8@gmail.com','kaan','lawrence',CURRENT_TIMEST
 
 Now the first user exists. 
 
+Link nginx server: sudo ln -s /etc/nginx/sites-available/web-server /etc/nginx/sites-enabled
+
+Link nginx server: sudo ln -s /etc/nginx/sites-available/app-server /etc/nginx/sites-enabled
+
 ### Debugging
 
 Things may break as the database is updated and the schema changes. When in doubt, delete the database and recreate it,
