@@ -355,12 +355,48 @@ class Mission():
             return Response(return_string, status=400, mimetype='application/json')
 
 
+    @staticmethod
+    def get_mission_info():
+        if 'user' in session.keys():
+            user = session['user']
+            parsed_json = request.get_json()
+
+            mission_id = parsed_json['mission_id']
+            mission = Mission_DBModel.query.filter(Mission_DBModel.id == mission_id).first()
+
+            if mission is None:
+                dict_local = {'message': "Bad mission id."}
+                return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
+                return Response(return_string, status=400, mimetype='application/json')
+
+
+            drones = Drone_DBModel.query.join(Asset_DBModel).filter(Drone_DBModel.id == Asset_DBModel.drone_id).filter(Asset_DBModel.mission_id == mission_id).all()
+            
+            drone_list = []
+            for drone in drones:
+                drone_list += [{'id': drone.id, 'description': drone.description}]
+
+            commander = User_DBModel.query.filter_by(id = mission.commander).first()
+
+            mission_info = {'id': mission_id,'title': mission.title,
+            'description': mission.description, 'commander': commander.name,
+            'starts_at': str(mission.starts_at), 'ends_at': str(mission.ends_at),
+            'drones': drone_list, 'num_drones': len(drone_list), 'clearance': mission.clearance,
+            'area': mission.area, 'type': mission.type}
+            
+            return_string = json.dumps(mission_info, sort_keys=True, indent=4, separators=(',', ': '))
+            return return_string
+        else:
+            dict_local = {'message': "Auth error."}
+            return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
+            return Response(return_string, status=400, mimetype='application/json')
+
 
 app.add_url_rule('/v1_1/register_mission', '/v1_1/register_mission', Mission.register_mission, methods=['POST'])
 app.add_url_rule('/v1_1/get_missions', '/v1_1/get_missions', Mission.get_missions, methods=['POST'])
 app.add_url_rule('/v1_1/get_active_missions', '/v1_1/get_active_missions', Mission.get_active_missions, methods=['GET'])
 app.add_url_rule('/v1_1/get_past_missions', '/v1_1/get_past_missions', Mission.get_past_missions, methods=['GET'])
 app.add_url_rule('/v1_1/get_possible_mission_conflicts', '/v1_1/get_possible_mission_conflicts', Mission.get_possible_mission_conflicts, methods=['POST'])
-
+app.add_url_rule('/v1_1/get_mission_info', '/v1_1/get_mission_info', Mission.get_mission_info, methods=['POST'])
 
 
