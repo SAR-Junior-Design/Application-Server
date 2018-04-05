@@ -391,6 +391,56 @@ class Mission():
             return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
             return Response(return_string, status=400, mimetype='application/json')
 
+    @staticmethod
+    def edit_mission_details():
+        if 'user' in session.keys():
+            user = session['user']
+            parsed_json = request.get_json()
+
+            if "mission_id" not in parsed_json.keys():
+                dict_local = {'message': "No mission id has been given."}
+                return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
+                return Response(return_string, status=400, mimetype='application/json')
+
+            mission_id = parsed_json["mission_id"]
+
+            mission = Mission_DBModel.query.filter_by(id = mission_id).first()
+
+            if mission is None:
+                dict_local = {'message': "Bad mission id."}
+                return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
+                return Response(return_string, status=400, mimetype='application/json')
+
+            #make sure this is the commander
+            uid = user["id"]
+            if mission.commander != uid:
+                #then this isn't a user that can do this operation.
+                dict_local = {'message': "This user is not the mission commander."}
+                return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
+                return Response(return_string, status=400, mimetype='application/json')
+
+            if 'area' in parsed_json:
+                mission.area = parsed_json['area']
+            if 'description' in parsed_json:
+                mission.description = parsed_json['description']
+            if 'title' in parsed_json:
+                mission.title = parsed_json['title']
+            if 'type' in parsed_json:
+                mission.type = parsed_json['type']
+            if 'starts_at' in parsed_json:
+                mission.starts_at = parsed_json['starts_at']
+            if 'ends_at' in parsed_json:
+                mission.ends_at = parsed_json['ends_at']
+
+            db.session.commit()
+
+            dict_local = {'message' : 'Mission updated successfully.'}
+            return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
+            return return_string
+        else:
+            dict_local = {'code': 31, 'message': "Auth error."}
+            return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
+            return return_string
 
 app.add_url_rule('/v1_1/register_mission', '/v1_1/register_mission', Mission.register_mission, methods=['POST'])
 app.add_url_rule('/v1_1/get_missions', '/v1_1/get_missions', Mission.get_missions, methods=['POST'])
@@ -398,5 +448,6 @@ app.add_url_rule('/v1_1/get_active_missions', '/v1_1/get_active_missions', Missi
 app.add_url_rule('/v1_1/get_past_missions', '/v1_1/get_past_missions', Mission.get_past_missions, methods=['GET'])
 app.add_url_rule('/v1_1/get_possible_mission_conflicts', '/v1_1/get_possible_mission_conflicts', Mission.get_possible_mission_conflicts, methods=['POST'])
 app.add_url_rule('/v1_1/get_mission_info', '/v1_1/get_mission_info', Mission.get_mission_info, methods=['POST'])
+app.add_url_rule('/v1_1/edit_mission_details', '/v1_1/edit_mission_details', Mission.edit_mission_details, methods=['POST'])
 
 
