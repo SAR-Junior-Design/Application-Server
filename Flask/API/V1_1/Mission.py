@@ -235,6 +235,81 @@ class Mission():
             return Response(return_string, status=400, mimetype='application/json')
 
     @staticmethod
+    def get_upcoming_missions():
+        if 'user' in session.keys():
+            user = session['user']
+            current_time = datetime.datetime.now()
+
+            if User_DBModel.query.filter_by(id = user["id"]).first().account_type == "government_official":
+
+                missions = Mission_DBModel.query.filter(Mission_DBModel.starts_at > current_time).all()
+
+                mission_list = []
+                for mission in missions:
+
+                    drones = Drone_DBModel.query.join(Asset_DBModel).filter(Drone_DBModel.id == Asset_DBModel.drone_id).filter(Asset_DBModel.mission_id == mission.id).all()
+                    
+                    drone_list = []
+                    for drone in drones:
+                        drone_list += [{'id': drone.id, 'description': drone.description}]
+
+                    commander = User_DBModel.query.filter_by(id = mission.commander).first()
+
+                    mission_list += [{'id': mission.id,'title': mission.title,
+                    'description': mission.description, 'commander': commander.name, 'commander_id': mission.commander,
+                    'starts_at': str(mission.starts_at), 'ends_at': str(mission.ends_at),
+                    'drones': drone_list, 'num_drones': len(drone_list), 'clearance': mission.clearance,
+                    'area': mission.area, 'type': mission.type}]
+
+                return_string = json.dumps(mission_list, sort_keys=True, indent=4, separators=(',', ': '))
+                return return_string
+
+            else:
+            
+                commanded_missions = Mission_DBModel.query.filter(Mission_DBModel.commander == user['id'], Mission_DBModel.starts_at > current_time).all()
+
+                mission_list = []
+                for mission in commanded_missions:
+
+                    drones = Drone_DBModel.query.join(Asset_DBModel).filter(Drone_DBModel.id == Asset_DBModel.drone_id).filter(Asset_DBModel.mission_id == mission.id).all()
+                    
+                    drone_list = []
+                    for drone in drones:
+                        drone_list += [{'id': drone.id, 'description': drone.description}]
+
+                    commander = User_DBModel.query.filter_by(id = mission.commander).first()
+
+                    mission_list += [{'id': mission.id,'title': mission.title,
+                    'description': mission.description, 'commander': commander.name, 'commander_id': mission.commander,
+                    'starts_at': str(mission.starts_at), 'ends_at': str(mission.ends_at),
+                    'drones': drone_list, 'num_drones': len(drone_list), 'clearance': mission.clearance,
+                    'area': mission.area, 'type': mission.type}]
+
+                participating_missions = Mission_DBModel.query.join(Asset_DBModel, Mission_DBModel.id == Asset_DBModel.mission_id).filter(Asset_DBModel.operator == user['id'], Mission_DBModel.commander != user['id'], Mission_DBModel.starts_at > current_time).all()
+                for mission in participating_missions:
+                    drones = Drone_DBModel.query.join(Asset_DBModel).filter(Drone_DBModel.id == Asset_DBModel.drone_id).filter(Asset_DBModel.mission_id == mission.id).all()
+                    
+                    drone_list = []
+                    for drone in drones:
+                        drone_list += [{'id': drone.id, 'description': drone.description}]
+
+                    commander = User_DBModel.query.filter_by(id = mission.commander).first()
+
+                    mission_list += [{'id': mission.id,'title': mission.title,
+                    'description': mission.description, 'commander': commander.name, 'commander_id': mission.commander,
+                    'starts_at': str(mission.starts_at), 'ends_at': str(mission.ends_at),
+                    'drones': drone_list, 'num_drones': len(drone_list), 'clearance': mission.clearance, 'type': mission.type}]
+
+                return_string = json.dumps(mission_list, sort_keys=True, indent=4, separators=(',', ': '))
+                return return_string
+        else:
+            dict_local = {'message': "Auth error."}
+            return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
+            return Response(return_string, status=400, mimetype='application/json')
+
+
+
+    @staticmethod
     def get_past_missions():
         if 'user' in session.keys():
             user = session['user']
@@ -449,5 +524,6 @@ app.add_url_rule('/v1_1/get_past_missions', '/v1_1/get_past_missions', Mission.g
 app.add_url_rule('/v1_1/get_possible_mission_conflicts', '/v1_1/get_possible_mission_conflicts', Mission.get_possible_mission_conflicts, methods=['POST'])
 app.add_url_rule('/v1_1/get_mission_info', '/v1_1/get_mission_info', Mission.get_mission_info, methods=['POST'])
 app.add_url_rule('/v1_1/edit_mission_details', '/v1_1/edit_mission_details', Mission.edit_mission_details, methods=['POST'])
+app.add_url_rule('/v1_1/get_upcoming_missions', '/v1_1/get_upcoming_missions', Mission.get_upcoming_missions, methods=['GET'])
 
 

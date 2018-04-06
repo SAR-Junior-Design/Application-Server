@@ -129,30 +129,30 @@ class Drone():
 
     @staticmethod
     def delete_drone():
-        print (session.keys())
         if 'user' in session.keys():
 
             user = session['user']
             email = user['email']
-            parsed_json = request.get_json()
+            parsed_array = request.get_json()
 
-            drone_id = parsed_json["id"]
-
-            drone = Drone_DBModel.query.filter_by(id=drone_id).first()
-            if drone is None:
-                dict_local = {'code': 31, 'message': "Bad drone id."}
-                return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
-                return return_string
-            db.session.delete(drone)
+            for element in parsed_array:
+                drone = Drone_DBModel.query.filter(Drone_DBModel.id==element["drone_id"]).first()
+                if drone is None:
+                    dict_local = {'message': "Bad drone id."}
+                    return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
+                    return Response(return_string, status=400, mimetype='application/json')
+                db.session.delete(drone)
+            
             db.session.commit()
 
-            dict_local = {'code': 200}
+            dict_local = {'message': 'Drone has been deleted.'}
             return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
             return return_string
         else:
-            dict_local = {'code': 31, 'message': "Auth error."}
+            dict_local = {'message': "Auth error."}
             return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
-            return return_string
+            return Response(return_string, status=400, mimetype='application/json')
+
 
     @staticmethod
     def get_drones_past_missions():
