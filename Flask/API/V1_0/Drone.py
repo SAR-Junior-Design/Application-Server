@@ -134,7 +134,7 @@ class Drone():
             user = session['user']
             email = user['email']
             parsed_array = request.get_json()
-
+            print(str(parsed_array))
             for element in parsed_array:
                 print(str(element))
                 if "id" not in element.keys():
