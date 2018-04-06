@@ -136,7 +136,7 @@ class Drone():
             parsed_array = request.get_json()
 
             for element in parsed_array:
-                drone = Drone_DBModel.query.filter(Drone_DBModel.id==element["drone_id"]).first()
+                drone = Drone_DBModel.query.filter(Drone_DBModel.id==element["id"]).first()
                 if drone is None:
                     dict_local = {'message': "Bad drone id."}
                     return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
