@@ -137,7 +137,7 @@ class Drone():
 
             for element in parsed_array:
 
-                if "id" not in element:
+                if "id" not in element.keys():
                     dict_local = {'message': "No id tag in element."}
                     return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
                     return Response(return_string, status=400, mimetype='application/json')
