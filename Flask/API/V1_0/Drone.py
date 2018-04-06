@@ -136,6 +136,12 @@ class Drone():
             parsed_array = request.get_json()
 
             for element in parsed_array:
+
+                if "id" not in element:
+                    dict_local = {'message': "No id tag in element."}
+                    return_string = json.dumps(dict_local, sort_keys=True, indent=4, separators=(',', ': '))
+                    return Response(return_string, status=400, mimetype='application/json')
+                
                 drone = Drone_DBModel.query.filter(Drone_DBModel.id==element["id"]).first()
                 if drone is None:
                     dict_local = {'message': "Bad drone id."}
