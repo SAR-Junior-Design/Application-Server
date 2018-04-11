@@ -2,9 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="09856d36-82a1-49f8-8ae1-86a2c17d4d12" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/http_backend.iml" afterPath="$PROJECT_DIR$/.idea/http_backend.iml" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Flask/DBModel/Drone_DBModel.py" afterPath="$PROJECT_DIR$/Flask/DBModel/Drone_DBModel.py" />
-      <change beforePath="$PROJECT_DIR$/Flask/Models/Drone.py" afterPath="$PROJECT_DIR$/Flask/Models/Drone.py" />
+      <change beforePath="$PROJECT_DIR$/Flask/API/V1_0/Drone.py" afterPath="$PROJECT_DIR$/Flask/API/Drone.py" />
+      <change beforePath="$PROJECT_DIR$/Flask/API/V1_0/Mission.py" afterPath="$PROJECT_DIR$/Flask/API/Mission.py" />
+      <change beforePath="$PROJECT_DIR$/Flask/API/V1_0/User.py" afterPath="$PROJECT_DIR$/Flask/API/User.py" />
+      <change beforePath="$PROJECT_DIR$/Flask/API/V1_0/__init__.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Flask/API/V1_1/Drone.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Flask/API/V1_1/Mission.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Flask/API/V1_1/User.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Flask/API/V1_1/__init__.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Flask/API/__init__.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Flask/main.py" afterPath="$PROJECT_DIR$/Flask/main.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,11 +24,33 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.8015102">
+    <splitter split-orientation="horizontal" split-proportion="0.4879657">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="User_DBModel.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Flask/DBModel/User_DBModel.py">
+          <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Flask/main.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="306">
+                  <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+                  <folding>
+                    <element signature="e#1#24#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="flaskapp.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Flask/flaskapp.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="0">
+                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Action_DBModel.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Flask/Models/Action_DBModel.py">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="0">
                   <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -29,11 +61,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Mission_DBModel.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Flask/DBModel/Mission_DBModel.py">
+          <file leaf-file-name="Asset_DBModel.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Flask/Models/Asset_DBModel.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="108">
-                  <caret line="13" column="45" lean-forward="false" selection-start-line="13" selection-start-column="45" selection-end-line="13" selection-end-column="45" />
+                <state relative-caret-position="0">
+                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
                   <folding>
                     <element signature="e#0#11#0" expanded="true" />
                   </folding>
@@ -41,8 +73,8 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Asset_DBModel.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Flask/DBModel/Asset_DBModel.py">
+          <file leaf-file-name="Document.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Flask/Models/Document.py">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="0">
                   <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -54,10 +86,10 @@
             </entry>
           </file>
           <file leaf-file-name="Drone.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/Flask/Models/Drone.py">
+            <entry file="file://$PROJECT_DIR$/Flask/API/Drone.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-2254">
-                  <caret line="70" column="34" lean-forward="false" selection-start-line="70" selection-start-column="34" selection-end-line="70" selection-end-column="34" />
+                <state relative-caret-position="1870">
+                  <caret line="223" column="61" lean-forward="true" selection-start-line="223" selection-start-column="61" selection-end-line="223" selection-end-column="61" />
                   <folding>
                     <element signature="e#0#11#0" expanded="true" />
                   </folding>
@@ -65,38 +97,15 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Permissions_dbModel.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Flask/DBModel/Permissions_dbModel.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="108">
-                  <caret line="8" column="52" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="8" selection-end-column="52" />
-                  <folding>
-                    <element signature="e#0#11#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Document_DBModel.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Flask/DBModel/Document_DBModel.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="270">
-                  <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-                  <folding>
-                    <element signature="e#0#11#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Flask/main.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="0">
-                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-                  <folding>
-                    <element signature="e#1#24#0" expanded="true" />
-                  </folding>
+          <file leaf-file-name="README.MD" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/README.MD">
+              <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+                <state split_layout="SPLIT">
+                  <first_editor relative-caret-position="0">
+                    <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                    <folding />
+                  </first_editor>
+                  <second_editor />
                 </state>
               </provider>
             </entry>
@@ -111,28 +120,56 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Drone_DBModel.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Flask/DBModel/Drone_DBModel.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="252">
-                  <caret line="14" column="45" lean-forward="false" selection-start-line="14" selection-start-column="45" selection-end-line="14" selection-end-column="45" />
-                  <folding>
-                    <element signature="e#0#11#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
         </leaf>
       </split-first>
       <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="Drone_DBModel.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/Flask/DBModel/Drone_DBModel.py">
+        <leaf>
+          <file leaf-file-name="User.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/Flask/API/User.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="486">
-                  <caret line="34" column="26" lean-forward="false" selection-start-line="34" selection-start-column="26" selection-end-line="34" selection-end-column="26" />
-                  <folding />
+                <state relative-caret-position="1496">
+                  <caret line="245" column="22" lean-forward="false" selection-start-line="245" selection-start-column="22" selection-end-line="245" selection-end-column="22" />
+                  <folding>
+                    <element signature="e#537#816#0" expanded="false" />
+                    <element signature="e#569#772#0" expanded="false" />
+                    <element signature="e#854#905#0" expanded="false" />
+                    <element signature="e#939#1906#0" expanded="false" />
+                    <element signature="e#1208#1690#0" expanded="false" />
+                    <element signature="e#1455#1534#0" expanded="false" />
+                    <element signature="e#1702#1906#0" expanded="false" />
+                    <element signature="e#1940#2369#0" expanded="false" />
+                    <element signature="e#1976#2159#0" expanded="false" />
+                    <element signature="e#2171#2369#0" expanded="false" />
+                    <element signature="e#2411#3457#0" expanded="false" />
+                    <element signature="e#2443#3279#0" expanded="false" />
+                    <element signature="e#2555#3074#0" expanded="false" />
+                    <element signature="e#2664#2950#0" expanded="false" />
+                    <element signature="e#2677#2908#0" expanded="false" />
+                    <element signature="e#3088#3279#0" expanded="false" />
+                    <element signature="e#3291#3457#0" expanded="false" />
+                    <element signature="e#3498#4262#0" expanded="false" />
+                    <element signature="e#3790#4072#0" expanded="false" />
+                    <element signature="e#4084#4262#0" expanded="false" />
+                    <element signature="e#4306#5042#0" expanded="false" />
+                    <element signature="e#4338#4864#0" expanded="false" />
+                    <element signature="e#4876#5042#0" expanded="false" />
+                    <element signature="e#5083#5695#0" expanded="false" />
+                    <element signature="e#5115#5517#0" expanded="false" />
+                    <element signature="e#5225#5399#0" expanded="false" />
+                    <element signature="e#5529#5695#0" expanded="false" />
+                    <element signature="e#5734#7285#0" expanded="false" />
+                    <element signature="e#5810#6024#0" expanded="false" />
+                    <element signature="e#6103#6320#0" expanded="false" />
+                    <element signature="e#6526#7029#0" expanded="false" />
+                    <element signature="e#6756#6862#0" expanded="false" />
+                    <element signature="e#7041#7285#0" expanded="false" />
+                    <element signature="e#7324#7823#0" expanded="false" />
+                    <element signature="e#7360#7582#0" expanded="false" />
+                    <element signature="e#7594#7823#0" expanded="false" />
+                    <element signature="e#7869#8631#0" expanded="false" />
+                    <element signature="e#8159#8441#0" expanded="false" />
+                    <element signature="e#8453#8631#0" expanded="false" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -165,6 +202,14 @@
         <option value="$PROJECT_DIR$/Flask/DBModel/Document_DBModel.py" />
         <option value="$PROJECT_DIR$/Flask/DBModel/Drone_DBModel.py" />
         <option value="$PROJECT_DIR$/Flask/Models/Drone.py" />
+        <option value="$PROJECT_DIR$/Flask/API/V1_0/Drone.py" />
+        <option value="$PROJECT_DIR$/Flask/API/V1_1/Drone.py" />
+        <option value="$PROJECT_DIR$/Flask/API/V1_1/Mission.py" />
+        <option value="$PROJECT_DIR$/Flask/API/V1_0/Mission.py" />
+        <option value="$PROJECT_DIR$/Flask/API/V1_1/User.py" />
+        <option value="$PROJECT_DIR$/Flask/API/V1_0/User.py" />
+        <option value="$PROJECT_DIR$/Flask/main.py" />
+        <option value="$PROJECT_DIR$/Flask/API/Drone.py" />
       </list>
     </option>
   </component>
@@ -175,10 +220,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="992" />
-    <option name="y" value="24" />
-    <option name="width" value="928" />
-    <option name="height" value="1056" />
+    <option name="x" value="670" />
+    <option name="y" value="657" />
+    <option name="width" value="1853" />
+    <option name="height" value="2076" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -200,24 +245,12 @@
           <expand>
             <path>
               <item name="http_backend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="http_backend" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="http_backend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="http_backend" type="462c0819:PsiDirectoryNode" />
               <item name="Flask" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="http_backend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="http_backend" type="462c0819:PsiDirectoryNode" />
               <item name="Flask" type="462c0819:PsiDirectoryNode" />
-              <item name="DBModel" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="http_backend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="http_backend" type="462c0819:PsiDirectoryNode" />
-              <item name="Flask" type="462c0819:PsiDirectoryNode" />
-              <item name="Models" type="462c0819:PsiDirectoryNode" />
+              <item name="API" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -228,9 +261,14 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Flask" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Flask/API/" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -261,17 +299,21 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
+    <frame x="130" y="-8" width="3710" height="2168" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16442049" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18247978" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32952777" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -279,10 +321,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
     </layout>
@@ -318,31 +356,12 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="3" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Flask/DBModel/Drone_DBModel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="15" column="4" lean-forward="false" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/DBModel/Permissions_dbModel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="8" column="52" lean-forward="true" selection-start-line="7" selection-start-column="4" selection-end-line="8" selection-end-column="52" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Flask/DBModel/__init__.py" />
     <entry file="file://$PROJECT_DIR$/Flask/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -368,70 +387,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/DBModel/Document_DBModel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="13" column="18" lean-forward="false" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/Models/Mission.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6390">
-          <caret line="370" column="17" lean-forward="true" selection-start-line="370" selection-start-column="17" selection-end-line="370" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/DBModel/User_DBModel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/DBModel/Mission_DBModel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/DBModel/Asset_DBModel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/DBModel/Drone_DBModel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/DBModel/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Flask/DBModel/Drone_Live_DBModel.py" />
+    <entry file="file://$PROJECT_DIR$/Flask/Models/Mission.py" />
+    <entry file="file://$PROJECT_DIR$/Flask/DBModel/User_DBModel.py" />
+    <entry file="file://$PROJECT_DIR$/Flask/DBModel/Asset_DBModel.py" />
+    <entry file="file://$PROJECT_DIR$/Flask/DBModel/Drone_DBModel.py" />
+    <entry file="file://$PROJECT_DIR$/Flask/DBModel/__init__.py" />
     <entry file="file://$PROJECT_DIR$/Flask/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -457,58 +418,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/DBModel/Drone_Live_DBModel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="41" column="38" lean-forward="false" selection-start-line="41" selection-start-column="38" selection-end-line="41" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/Models/Mission.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="12580">
-          <caret line="370" column="32" lean-forward="false" selection-start-line="370" selection-start-column="32" selection-end-line="370" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/DBModel/User_DBModel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/DBModel/Asset_DBModel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/DBModel/Drone_DBModel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/DBModel/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Flask/Models/User.py" />
+    <entry file="file://$PROJECT_DIR$/Flask/DBModel/Drone_Live_DBModel.py" />
+    <entry file="file://$PROJECT_DIR$/Flask/Models/Mission.py" />
+    <entry file="file://$PROJECT_DIR$/Flask/DBModel/Asset_DBModel.py" />
+    <entry file="file://$PROJECT_DIR$/Flask/DBModel/Drone_DBModel.py" />
+    <entry file="file://$PROJECT_DIR$/Flask/DBModel/__init__.py" />
     <entry file="file://$PROJECT_DIR$/Flask/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -534,65 +449,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/Models/User.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/DBModel/Drone_Live_DBModel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1224">
-          <caret line="36" column="42" lean-forward="true" selection-start-line="36" selection-start-column="42" selection-end-line="36" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/Models/Mission.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="12104">
-          <caret line="370" column="32" lean-forward="false" selection-start-line="370" selection-start-column="32" selection-end-line="370" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/DBModel/Asset_DBModel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/DBModel/Drone_DBModel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/DBModel/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#1#24#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Flask/Models/User.py" />
+    <entry file="file://$PROJECT_DIR$/Flask/DBModel/User_DBModel.py" />
+    <entry file="file://$PROJECT_DIR$/Flask/Models/Mission.py" />
+    <entry file="file://$PROJECT_DIR$/Flask/Models/Mission.py" />
+    <entry file="file://$PROJECT_DIR$/Flask/Models/User.py" />
+    <entry file="file://$PROJECT_DIR$/Flask/Models/Mission.py" />
+    <entry file="file://$PROJECT_DIR$/Flask/DBModel/__init__.py" />
     <entry file="file://$PROJECT_DIR$/Flask/Models/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -601,21 +464,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/flaskapp.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/Models/User.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/DBModel/User_DBModel.py">
+    <entry file="file://$PROJECT_DIR$/Flask/DBModel/Drone_Live_DBModel.py" />
+    <entry file="file://$PROJECT_DIR$/Flask/DBModel/User_DBModel.py" />
+    <entry file="file://$PROJECT_DIR$/Flask/DBModel/Asset_DBModel.py" />
+    <entry file="file://$PROJECT_DIR$/Flask/DBModel/Document_DBModel.py" />
+    <entry file="file://$PROJECT_DIR$/Flask/DBModel/Permissions_dbModel.py" />
+    <entry file="file://$PROJECT_DIR$/Flask/DBModel/Mission_DBModel.py" />
+    <entry file="file://$PROJECT_DIR$/Flask/DBModel/Drone_DBModel.py" />
+    <entry file="file://$PROJECT_DIR$/Flask/Models/Drone.py" />
+    <entry file="file://$PROJECT_DIR$/Flask/Models/Action_DBModel.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -625,38 +482,299 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/Models/Mission.py">
+    <entry file="file://$PROJECT_DIR$/Flask/Models/Asset_DBModel.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/Models/Mission.py">
+    <entry file="file://$PROJECT_DIR$/Flask/Models/Document.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/Models/User.py">
+    <entry file="file://$PROJECT_DIR$/README.MD">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="0">
+            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Flask/API/V1_1/Drone.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/Models/Mission.py">
+    <entry file="file://$PROJECT_DIR$/Flask/API/Mission.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7236">
-          <caret line="417" column="17" lean-forward="false" selection-start-line="417" selection-start-column="17" selection-end-line="417" selection-end-column="17" />
+        <state relative-caret-position="476">
+          <caret line="1151" column="15" lean-forward="true" selection-start-line="1151" selection-start-column="15" selection-end-line="1151" selection-end-column="15" />
+          <folding>
+            <element signature="e#628#57143#0" expanded="false" />
+            <element signature="e#679#1800#0" expanded="false" />
+            <element signature="e#720#1588#0" expanded="false" />
+            <element signature="e#1615#1800#0" expanded="false" />
+            <element signature="e#1858#3019#0" expanded="false" />
+            <element signature="e#1899#2807#0" expanded="false" />
+            <element signature="e#2146#2351#0" expanded="false" />
+            <element signature="e#2545#2672#0" expanded="false" />
+            <element signature="e#2834#3019#0" expanded="false" />
+            <element signature="e#3078#7498#0" expanded="false" />
+            <element signature="e#3119#7286#0" expanded="false" />
+            <element signature="e#3295#4603#0" expanded="false" />
+            <element signature="e#3506#4458#0" expanded="false" />
+            <element signature="e#3982#4458#0" expanded="false" />
+            <element signature="e#3983#4457#0" expanded="false" />
+            <element signature="e#4640#7286#0" expanded="false" />
+            <element signature="e#4907#5859#0" expanded="false" />
+            <element signature="e#5383#5859#0" expanded="false" />
+            <element signature="e#5384#5858#0" expanded="false" />
+            <element signature="e#6249#7141#0" expanded="false" />
+            <element signature="e#6725#7141#0" expanded="false" />
+            <element signature="e#6726#7140#0" expanded="false" />
+            <element signature="e#7313#7498#0" expanded="false" />
+            <element signature="e#7558#11978#0" expanded="false" />
+            <element signature="e#7599#11766#0" expanded="false" />
+            <element signature="e#7775#9083#0" expanded="false" />
+            <element signature="e#7986#8938#0" expanded="false" />
+            <element signature="e#8462#8938#0" expanded="false" />
+            <element signature="e#8463#8937#0" expanded="false" />
+            <element signature="e#9120#11766#0" expanded="false" />
+            <element signature="e#9387#10339#0" expanded="false" />
+            <element signature="e#9863#10339#0" expanded="false" />
+            <element signature="e#9864#10338#0" expanded="false" />
+            <element signature="e#10729#11621#0" expanded="false" />
+            <element signature="e#11205#11621#0" expanded="false" />
+            <element signature="e#11206#11620#0" expanded="false" />
+            <element signature="e#11793#11978#0" expanded="false" />
+            <element signature="e#12029#13012#0" expanded="false" />
+            <element signature="e#12070#12800#0" expanded="false" />
+            <element signature="e#12332#12537#0" expanded="false" />
+            <element signature="e#12827#13012#0" expanded="false" />
+            <element signature="e#13077#14427#0" expanded="false" />
+            <element signature="e#13118#14215#0" expanded="false" />
+            <element signature="e#13413#13618#0" expanded="false" />
+            <element signature="e#13737#13940#0" expanded="false" />
+            <element signature="e#14242#14427#0" expanded="false" />
+            <element signature="e#14487#16406#0" expanded="false" />
+            <element signature="e#14528#16194#0" expanded="false" />
+            <element signature="e#14875#15080#0" expanded="false" />
+            <element signature="e#15199#15402#0" expanded="false" />
+            <element signature="e#15628#15945#0" expanded="false" />
+            <element signature="e#15980#16194#0" expanded="false" />
+            <element signature="e#16221#16406#0" expanded="false" />
+            <element signature="e#16462#18838#0" expanded="false" />
+            <element signature="e#16534#18587#0" expanded="false" />
+            <element signature="e#16710#17024#0" expanded="false" />
+            <element signature="e#16765#17024#0" expanded="false" />
+            <element signature="e#17750#18368#0" expanded="false" />
+            <element signature="e#18614#18838#0" expanded="false" />
+            <element signature="e#18890#24833#0" expanded="false" />
+            <element signature="e#18931#24582#0" expanded="false" />
+            <element signature="e#19071#19315#0" expanded="false" />
+            <element signature="e#19385#19627#0" expanded="false" />
+            <element signature="e#20008#21473#0" expanded="false" />
+            <element signature="e#20281#21328#0" expanded="false" />
+            <element signature="e#20757#21328#0" expanded="false" />
+            <element signature="e#20758#21327#0" expanded="false" />
+            <element signature="e#21510#24582#0" expanded="false" />
+            <element signature="e#21920#22967#0" expanded="false" />
+            <element signature="e#22396#22967#0" expanded="false" />
+            <element signature="e#22397#22966#0" expanded="false" />
+            <element signature="e#23450#24437#0" expanded="false" />
+            <element signature="e#23926#24437#0" expanded="false" />
+            <element signature="e#23927#24436#0" expanded="false" />
+            <element signature="e#24609#24833#0" expanded="false" />
+            <element signature="e#24892#29980#0" expanded="false" />
+            <element signature="e#24933#29729#0" expanded="false" />
+            <element signature="e#25131#26604#0" expanded="false" />
+            <element signature="e#25412#26459#0" expanded="false" />
+            <element signature="e#25888#26459#0" expanded="false" />
+            <element signature="e#25889#26458#0" expanded="false" />
+            <element signature="e#26641#29729#0" expanded="false" />
+            <element signature="e#27059#28106#0" expanded="false" />
+            <element signature="e#27535#28106#0" expanded="false" />
+            <element signature="e#27536#28105#0" expanded="false" />
+            <element signature="e#28597#29584#0" expanded="false" />
+            <element signature="e#29073#29584#0" expanded="false" />
+            <element signature="e#29074#29583#0" expanded="false" />
+            <element signature="e#29756#29980#0" expanded="false" />
+            <element signature="e#30041#34887#0" expanded="false" />
+            <element signature="e#30082#34636#0" expanded="false" />
+            <element signature="e#30280#31657#0" expanded="false" />
+            <element signature="e#30465#31512#0" expanded="false" />
+            <element signature="e#30941#31512#0" expanded="false" />
+            <element signature="e#30942#31511#0" expanded="false" />
+            <element signature="e#31694#34636#0" expanded="false" />
+            <element signature="e#32006#33053#0" expanded="false" />
+            <element signature="e#32482#33053#0" expanded="false" />
+            <element signature="e#32483#33052#0" expanded="false" />
+            <element signature="e#33504#34491#0" expanded="false" />
+            <element signature="e#33980#34491#0" expanded="false" />
+            <element signature="e#33981#34490#0" expanded="false" />
+            <element signature="e#34663#34887#0" expanded="false" />
+            <element signature="e#34944#39784#0" expanded="false" />
+            <element signature="e#34985#39533#0" expanded="false" />
+            <element signature="e#35183#36558#0" expanded="false" />
+            <element signature="e#35366#36413#0" expanded="false" />
+            <element signature="e#35842#36413#0" expanded="false" />
+            <element signature="e#35843#36412#0" expanded="false" />
+            <element signature="e#36595#39533#0" expanded="false" />
+            <element signature="e#36905#37952#0" expanded="false" />
+            <element signature="e#37381#37952#0" expanded="false" />
+            <element signature="e#37382#37951#0" expanded="false" />
+            <element signature="e#38401#39388#0" expanded="false" />
+            <element signature="e#38877#39388#0" expanded="false" />
+            <element signature="e#38878#39387#0" expanded="false" />
+            <element signature="e#39560#39784#0" expanded="false" />
+            <element signature="e#39854#42088#0" expanded="false" />
+            <element signature="e#39895#41836#0" expanded="false" />
+            <element signature="e#40035#40279#0" expanded="false" />
+            <element signature="e#40349#40591#0" expanded="false" />
+            <element signature="e#41119#41699#0" expanded="false" />
+            <element signature="e#41571#41699#0" expanded="false" />
+            <element signature="e#41572#41698#0" expanded="false" />
+            <element signature="e#41864#42088#0" expanded="false" />
+            <element signature="e#42144#43930#0" expanded="false" />
+            <element signature="e#42185#43679#0" expanded="false" />
+            <element signature="e#42447#42683#0" expanded="false" />
+            <element signature="e#43124#43542#0" expanded="false" />
+            <element signature="e#43706#43930#0" expanded="false" />
+            <element signature="e#43990#46333#0" expanded="false" />
+            <element signature="e#44031#46121#0" expanded="false" />
+            <element signature="e#44171#44421#0" expanded="false" />
+            <element signature="e#44601#44837#0" expanded="false" />
+            <element signature="e#44971#45300#0" expanded="false" />
+            <element signature="e#46148#46333#0" expanded="false" />
+            <element signature="e#46392#47885#0" expanded="false" />
+            <element signature="e#46433#47673#0" expanded="false" />
+            <element signature="e#46805#47010#0" expanded="false" />
+            <element signature="e#47144#47434#0" expanded="false" />
+            <element signature="e#47700#47885#0" expanded="false" />
+            <element signature="e#47945#49573#0" expanded="false" />
+            <element signature="e#47986#49361#0" expanded="false" />
+            <element signature="e#48233#48438#0" expanded="false" />
+            <element signature="e#48572#48862#0" expanded="false" />
+            <element signature="e#49388#49573#0" expanded="false" />
+            <element signature="e#49628#51140#0" expanded="false" />
+            <element signature="e#49669#50928#0" expanded="false" />
+            <element signature="e#49916#50121#0" expanded="false" />
+            <element signature="e#50255#50545#0" expanded="false" />
+            <element signature="e#50559#50595#0" expanded="false" />
+            <element signature="e#50955#51140#0" expanded="false" />
+            <element signature="e#51193#52736#0" expanded="false" />
+            <element signature="e#51234#52524#0" expanded="false" />
+            <element signature="e#51512#51717#0" expanded="false" />
+            <element signature="e#51851#52141#0" expanded="false" />
+            <element signature="e#52155#52191#0" expanded="false" />
+            <element signature="e#52551#52736#0" expanded="false" />
+            <element signature="e#52793#53393#0" expanded="false" />
+            <element signature="e#52834#53181#0" expanded="false" />
+            <element signature="e#53208#53393#0" expanded="false" />
+            <element signature="e#53452#54639#0" expanded="false" />
+            <element signature="e#53493#54426#0" expanded="false" />
+            <element signature="e#53659#53861#0" expanded="false" />
+            <element signature="e#53902#53920#0" expanded="false" />
+            <element signature="e#54454#54639#0" expanded="false" />
+            <element signature="e#54675#55613#0" expanded="false" />
+            <element signature="e#54716#55401#0" expanded="false" />
+            <element signature="e#54960#55157#0" expanded="false" />
+            <element signature="e#55428#55613#0" expanded="false" />
+            <element signature="e#55667#57143#0" expanded="false" />
+            <element signature="e#55708#56931#0" expanded="false" />
+            <element signature="e#55853#56709#0" expanded="false" />
+            <element signature="e#56096#56301#0" expanded="false" />
+            <element signature="e#56334#56436#0" expanded="false" />
+            <element signature="e#56958#57143#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/DBModel/__init__.py">
+    <entry file="file://$PROJECT_DIR$/Flask/API/V1_1/Mission.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="83" column="14" lean-forward="false" selection-start-line="83" selection-start-column="14" selection-end-line="83" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Flask/API/V1_1/User.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Flask/API/V1_0/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Flask/API/User.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1496">
+          <caret line="245" column="22" lean-forward="false" selection-start-line="245" selection-start-column="22" selection-end-line="245" selection-end-column="22" />
+          <folding>
+            <element signature="e#537#816#0" expanded="false" />
+            <element signature="e#569#772#0" expanded="false" />
+            <element signature="e#854#905#0" expanded="false" />
+            <element signature="e#939#1906#0" expanded="false" />
+            <element signature="e#1208#1690#0" expanded="false" />
+            <element signature="e#1455#1534#0" expanded="false" />
+            <element signature="e#1702#1906#0" expanded="false" />
+            <element signature="e#1940#2369#0" expanded="false" />
+            <element signature="e#1976#2159#0" expanded="false" />
+            <element signature="e#2171#2369#0" expanded="false" />
+            <element signature="e#2411#3457#0" expanded="false" />
+            <element signature="e#2443#3279#0" expanded="false" />
+            <element signature="e#2555#3074#0" expanded="false" />
+            <element signature="e#2664#2950#0" expanded="false" />
+            <element signature="e#2677#2908#0" expanded="false" />
+            <element signature="e#3088#3279#0" expanded="false" />
+            <element signature="e#3291#3457#0" expanded="false" />
+            <element signature="e#3498#4262#0" expanded="false" />
+            <element signature="e#3790#4072#0" expanded="false" />
+            <element signature="e#4084#4262#0" expanded="false" />
+            <element signature="e#4306#5042#0" expanded="false" />
+            <element signature="e#4338#4864#0" expanded="false" />
+            <element signature="e#4876#5042#0" expanded="false" />
+            <element signature="e#5083#5695#0" expanded="false" />
+            <element signature="e#5115#5517#0" expanded="false" />
+            <element signature="e#5225#5399#0" expanded="false" />
+            <element signature="e#5529#5695#0" expanded="false" />
+            <element signature="e#5734#7285#0" expanded="false" />
+            <element signature="e#5810#6024#0" expanded="false" />
+            <element signature="e#6103#6320#0" expanded="false" />
+            <element signature="e#6526#7029#0" expanded="false" />
+            <element signature="e#6756#6862#0" expanded="false" />
+            <element signature="e#7041#7285#0" expanded="false" />
+            <element signature="e#7324#7823#0" expanded="false" />
+            <element signature="e#7360#7582#0" expanded="false" />
+            <element signature="e#7594#7823#0" expanded="false" />
+            <element signature="e#7869#8631#0" expanded="false" />
+            <element signature="e#8159#8441#0" expanded="false" />
+            <element signature="e#8453#8631#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -664,99 +782,24 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Flask/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="306">
+          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding>
             <element signature="e#1#24#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/Models/__init__.py">
+    <entry file="file://$PROJECT_DIR$/Flask/API/Drone.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/DBModel/Drone_Live_DBModel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="41" column="38" lean-forward="false" selection-start-line="41" selection-start-column="38" selection-end-line="41" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/DBModel/User_DBModel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/DBModel/Asset_DBModel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/DBModel/Document_DBModel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/DBModel/Permissions_dbModel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="8" column="52" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="8" selection-end-column="52" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/DBModel/Mission_DBModel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="13" column="45" lean-forward="false" selection-start-line="13" selection-start-column="45" selection-end-line="13" selection-end-column="45" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/DBModel/Drone_DBModel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" column="45" lean-forward="false" selection-start-line="14" selection-start-column="45" selection-end-line="14" selection-end-column="45" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/Models/Drone.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2254">
-          <caret line="70" column="34" lean-forward="false" selection-start-line="70" selection-start-column="34" selection-end-line="70" selection-end-column="34" />
+        <state relative-caret-position="1870">
+          <caret line="223" column="61" lean-forward="true" selection-start-line="223" selection-start-column="61" selection-end-line="223" selection-end-column="61" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
