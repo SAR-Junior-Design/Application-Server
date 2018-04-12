@@ -1,10 +1,28 @@
-# http_backend
+# Icarus HTTP Backend
 
-## How to run locally:
+## Installation Guide for Icarus
+### Pre-Requisites
 
-### Setup
+Install Postgresql, see https://www.postgresql.org/download/
 
-First, install Postgresql (here is the site: https://www.postgresql.org/download/)
+### Download
+
+
+
+### Dependencies
+
+
+
+### Build
+
+
+
+### Installation
+
+
+
+### Run
+[still splitting this up]
 
 Second, setup a new user named Ubuntu. Make the password to that user "elephants_remember_1984"
 (this makes sure it's consistent with the backend code). 
@@ -32,7 +50,21 @@ Link nginx server: sudo ln -s /etc/nginx/sites-available/web-server /etc/nginx/s
 
 Link nginx server: sudo ln -s /etc/nginx/sites-available/app-server /etc/nginx/sites-enabled
 
-### Debugging
+## Release Notes for Icarus
+### New Features
 
-Things may break as the database is updated and the schema changes. When in doubt, delete the database and recreate it,
-following the rules described above. 
+<ul>
+  <li></li>
+</ul> 
+
+### Bug Fixes
+
+<ul>
+  <li></li>
+</ul>
+
+### Known Bugs
+
+<ul>
+  <li></li>
+</ul> 
