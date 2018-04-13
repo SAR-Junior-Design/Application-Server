@@ -7,7 +7,7 @@ Install Postgresql, see https://www.postgresql.org/download/
 
 ### Download
 
-
+Download repository, see https://github.com/SAR-Junior-Design/Application-Server
 
 ### Dependencies
 
@@ -24,8 +24,9 @@ Install Postgresql, see https://www.postgresql.org/download/
 ### Run
 [still splitting this up]
 
-Second, setup a new user named Ubuntu. Make the password to that user "elephants_remember_1984"
-(this makes sure it's consistent with the backend code). 
+Through Postgres, setup a new user named Ubuntu. Make the password to that user "elephants_remember_1984"
+(this makes sure it's consistent with the backend code).
+
 
 type this command in:
 create database sar;
