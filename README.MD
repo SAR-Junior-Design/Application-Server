@@ -1,26 +1,64 @@
-# http_backend
+# Icarus HTTP Backend
 
-## How to run locally:
+## Installation Guide for Icarus
 
-### Setup
+### Make
 
-First, install Postgresql (here is the site: https://www.postgresql.org/download/)
+If you're running on Ubuntu, you can run the make file in the root directory and download all of the necessary dependencies. 
 
-Second, setup a new user named Ubuntu. Make the password to that user "elephants_remember_1984"
-(this makes sure it's consistent with the backend code). 
+```make install-dependencies```
 
-type this command in:
+### Pre-Requisites
+
+Install Postgresql, see https://www.postgresql.org/download/
+
+### Download
+
+Download repository, see https://github.com/SAR-Junior-Design/Application-Server
+
+### Python Setup
+
+A virtual environment is not necessary, but might be helpful if there are other projects on your server.
+
+Install dependencies by going into the Flask/ repository, and then running:
+
+``` pip3 install -r requirements.txt ```
+
+### Database Setup
+
+In the terminal type in:
+
+``` psql postgres; ```
+
+Once you're in the postgres terminal.
+
+```
+CREATE USER ubuntu;
+CREATE DATABASE sar;
+GRANT ALL PRIVILEGES ON SAR TO ubuntu;
+```
+
+### Run
+[still splitting this up]
+
+Through Postgres, setup a new user named Ubuntu. Make the password to that user "elephants_remember_1984"
+(this makes sure it's consistent with the backend code).
+
+
+```
+type this command in;
 create database sar;
-
-Grant ubuntu all privileges: 
+Grant ubuntu all privileges;
 grant all privileges on database sar to ubuntu;
+```
 
 Then in main.py, make sure that db.create_all() is not commented out. This creates the tables.
 
 Run the code once, then turn off the server. The tables should be made in the database now.
 
 Open the sar database with the command:
-psql sar;
+
+```psql sar;```
 
 Run this sql script to create the first user:
 
@@ -32,7 +70,25 @@ Link nginx server: sudo ln -s /etc/nginx/sites-available/web-server /etc/nginx/s
 
 Link nginx server: sudo ln -s /etc/nginx/sites-available/app-server /etc/nginx/sites-enabled
 
-### Debugging
+## Release Notes for Icarus
+### New Features
 
-Things may break as the database is updated and the schema changes. When in doubt, delete the database and recreate it,
-following the rules described above. 
+<ul>
+  <li>Filters for get_missions()</li>
+  <li>SSL security is setup. Now HTTP is disallowed and HTTPS is the only option. </li>
+  <li>Back-end API is exposed at backend.icarusmap.com, and front-end SPA is exposed at icarusmap.com </li>
+</ul> 
+
+### Bug Fixes
+
+<ul>
+  <li>Status codes for most API calls were updated and fixed to be more descriptive. Now the proper status code is sent along with a descriptive message.</li>
+</ul>
+
+### Known Bugs
+
+<ul>
+  <li>Versioning system is wrong, we need to transition to a better versioning system.</li>
+  <li>Get active missions doesn't work.</li>
+  <li>Get recent missions doesn't work.</li>
+</ul> 
