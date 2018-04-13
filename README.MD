@@ -22,19 +22,21 @@ A virtual environment is not necessary, but might be helpful if there are other 
 
 Install dependencies by going into the Flask/ repository, and then running:
 
-```pip3 install -r requirements.txt```
+``` pip3 install -r requirements.txt ```
 
 ### Database Setup
 
 In the terminal type in:
 
-```psql postgres;```
+``` psql postgres; ```
 
 Once you're in the postgres terminal.
 
-```CREATE USER ubuntu;
+```
+CREATE USER ubuntu;
 CREATE DATABASE sar;
-GRANT ALL PRIVILEGES ON SAR TO ubuntu;```
+GRANT ALL PRIVILEGES ON SAR TO ubuntu;
+```
 
 ### Run
 [still splitting this up]
@@ -43,7 +45,8 @@ Through Postgres, setup a new user named Ubuntu. Make the password to that user 
 (this makes sure it's consistent with the backend code).
 
 
-```type this command in;
+```
+type this command in;
 create database sar;
 Grant ubuntu all privileges;
 grant all privileges on database sar to ubuntu;
