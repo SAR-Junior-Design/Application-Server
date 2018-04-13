@@ -1,6 +1,6 @@
 # Icarus HTTP Backend
 
-## Installation Guide for Icarus
+## Installation Guide for Icarus 1.0
 
 ### Make
 
@@ -62,7 +62,7 @@ Open the sar database with the command:
 
 Run this sql script to create the first user:
 
-insert into users values ('samcrane8@gmail.com','kaan','lawrence',CURRENT_TIMESTAMP,'admin');
+Insert into users values ('samcrane8@gmail.com','kaan','lawrence',CURRENT_TIMESTAMP,'admin');
 
 Now the first user exists. 
 
@@ -70,7 +70,7 @@ Link nginx server: sudo ln -s /etc/nginx/sites-available/web-server /etc/nginx/s
 
 Link nginx server: sudo ln -s /etc/nginx/sites-available/app-server /etc/nginx/sites-enabled
 
-## Release Notes for Icarus
+## Release Notes for Icarus 1.0
 ### New Features
 
 <ul>
