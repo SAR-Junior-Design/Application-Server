@@ -136,6 +136,8 @@ class User():
 				user_info.password = parsed_json['password']
 			if 'name' in parsed_json:
 				user_info.name = parsed_json['name']
+			if 'picture' in parsed_json:
+				user_info.picture = parsed_json['picture']
 
 			db.session.commit()
 
