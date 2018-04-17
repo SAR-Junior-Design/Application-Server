@@ -22,7 +22,10 @@ class Mission_DBModel(db.Model):
     ends_at = db.Column(db.DateTime, default=None)
     closed_at = db.Column(db.DateTime, default=None)
     current_action = db.Column(db.Text, db.ForeignKey('actions.id'))
-    clearance = db.Column(db.JSON, default={'state':'PENDING','offical':'PENDING'}) #holds when and who cleared the mission.
+
+    clearance_state = db.Column(db.Text, default="PENDING")
+    clearance_official = db.Column(db.Text, db.ForeignKey('users.id'))
+    clearance_message = db.Column(db.Text, default="Nothing written yet.")
 
     def __init__(self, id, title, commander, area, description, starts_at, ends_at):
         self.id = id

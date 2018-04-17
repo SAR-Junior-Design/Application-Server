@@ -1,5 +1,5 @@
-from flask import Flask
-from flask import request
+from flask import request, Response, send_file, send_from_directory, make_response, session, Flask
+
 
 #from authentication import UserAuthentication
 from flask_cors import CORS, cross_origin
@@ -7,6 +7,7 @@ from flask_cors import CORS, cross_origin
 from flask_sqlalchemy import SQLAlchemy
 from flask_session import Session
 from flask_mail import Mail
+from functools import wraps
 
 
 app = Flask('SarOS Back-End')
@@ -39,3 +40,5 @@ app.config['MAIL_ASCII_ATTACHMENTS'] = False
 mail = Mail(app) #use this to send mail messages.
 
 db.create_all()
+
+
