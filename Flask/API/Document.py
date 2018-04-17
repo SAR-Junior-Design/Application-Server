@@ -11,7 +11,7 @@ from Utility.color_print import ColorPrint
 from sqlalchemy.dialects.postgresql import JSON
 from sqlalchemy import or_
 
-from DBModel.Document_DBModel import Document_DBModel
+from Models.Document_DBModel import Document_DBModel
 
 class Document():
 
