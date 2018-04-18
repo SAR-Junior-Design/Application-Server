@@ -44,29 +44,6 @@ class User():
 		return return_string
 
 	@staticmethod
-	def register_user():
-		parsed_json = request.get_json()
-		email = parsed_json["email"]
-		password = parsed_json["password"]
-		password = str(hashlib.sha256(password.encode()).hexdigest())
-		name = parsed_json["name"]
-		account_type = 'operator'
-
-		if User_DBModel.query.filter_by(email = email).first() is None:
-			id = str(uuid.uuid4())
-			user = User_DBModel(id, name, password, email, account_type)
-			db.session.add(user)
-			db.session.commit()
-
-			return_json = {'code': 200}
-			return_string = json.dumps(return_json, sort_keys=True, indent=4, separators=(',', ': '))
-			return return_string
-		else:
-			return_json = {'code': 31, 'message': 'Email already taken.'}
-			return_string = json.dumps(return_json, sort_keys=True, indent=4, separators=(',', ': '))
-			return return_string
-
-	@staticmethod
 	@login_required
 	def update_user_info():
 		user = session['user']
@@ -84,7 +61,7 @@ class User():
 
 		db.session.commit()
 
-		return_dict = {'code': 200}
+		return_dict = {'message': 'Info updated successfully.'}
 		return_string = json.dumps(return_dict, sort_keys=True, indent=4, separators=(',', ': '))
 		return return_string
 
@@ -189,6 +166,8 @@ app.add_url_rule('/v1_1/register_user', '/v1_1/register_user', User.register_use
 app.add_url_rule('/v1_0/isLoggedIn', '/v1_0/isLoggedIn', User.isLoggedIn, methods=['GET'])
 app.add_url_rule('/v1_0/is_government_official', '/v1_0/is_government_official', User.is_government_official, methods=['GET'])
 app.add_url_rule('/v1_0/list_all_users', '/v1_0/list_all_users', User.list_all_users, methods=['GET'])
-app.add_url_rule('/v1_0/register_user', '/v1_0/register_user', User.register_user, methods=['POST'])
 app.add_url_rule('/v1_0/get_user_info', '/v1_0/get_user_info', User.get_user_info, methods=['GET'])
 app.add_url_rule('/v1_0/update_user_info', '/v1_0/update_user_info', User.update_user_info, methods=['POST'])
+
+
+
