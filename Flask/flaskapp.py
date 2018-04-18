@@ -12,6 +12,8 @@ from functools import wraps
 
 app = Flask('SarOS Back-End')
 
+app.config.from_object('config.config') #config file
+
 # app = Flask(__name__)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://ubuntu:elephants_remember_1984@localhost/sar'

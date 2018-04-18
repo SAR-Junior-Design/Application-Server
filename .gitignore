@@ -1,3 +1,4 @@
 *.pyc
 Flask/sar-appserver/
 Flask/sar-env/
+config.py
