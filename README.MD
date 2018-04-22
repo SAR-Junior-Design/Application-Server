@@ -72,7 +72,11 @@ Link nginx server: sudo ln -s /etc/nginx/sites-available/app-server /etc/nginx/s
 
 ### Troubleshooting
 
-
+<ul>
+  <li> Dependency issues? Go ahead and delete your virtual environment and start over.
+  <li> Cannot enter database? Make sure user privileges are setup correctly. If your system has a different name than ubuntu for your user, try entering the database as the ubuntu user, or change the privileges to that default user.
+  <li> Can't access the url endpoints? Make sure that the firewall is setup correctly. As well, make sure the 443 port is open. You shouldn't need any other ports (other than SSH to access your instance) because all of our communication is through HTTPS.
+</ul>
 
 ## Release Notes for Icarus
 ### New Features
