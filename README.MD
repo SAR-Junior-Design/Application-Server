@@ -70,6 +70,10 @@ Link nginx server: sudo ln -s /etc/nginx/sites-available/web-server /etc/nginx/s
 
 Link nginx server: sudo ln -s /etc/nginx/sites-available/app-server /etc/nginx/sites-enabled
 
+### Troubleshooting
+
+
+
 ## Release Notes for Icarus
 ### New Features
 
